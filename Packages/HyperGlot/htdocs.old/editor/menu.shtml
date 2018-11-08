@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Html Editor: Menu</title>
+    <style type="text/css">
+      <!--#include virtual="/HyperGlot/htdocs/styles.css"-->
+    </style>
+    <script language="JavaScript1.2">
+      <!-- Include Menu System JavaScript Code -->
+      <!--#include virtual="/HyperGlot/JavaScript/menu.java"-->
+    </script>
+  </head>
+  <body>
+    <center>
+      <table border="1">
+        <tr>
+          <td>
+            <form name="formSave" method="POST" action="">
+              <input name="save" type="button" value="Save" onClick="store()">
+            </form>
+          </td>
+          <td width="20">&nbsp;</td>
+          <td>
+            <form name="formCode" method="POST" action="">
+              <input name="code" type="button" value="Code Strings">
+            </form>
+          </td>
+        </tr>
+      </table>
+    </center>
+  </body>
+</html>

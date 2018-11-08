@@ -1,0 +1,47 @@
+#!/usr/local/bin/perl -w
+use strict;
+use src::lib::Files;
+%main::Config = ();
+my $files     = src::lib::Files->new();
+my $data      = "";
+
+
+if( open( IN, "./src/Classes/Config.pm.in" ) ) {
+	while( <IN> ) { $data .= $_ }
+	close( IN );
+} else {
+	print( STDOUT "Error: Cannot open \"Config.pm.in\"\n" );
+	exit(-1);
+}
+
+
+if( open( IN, "./config.cache" ) ) {
+ 	while( <IN> ) {
+ 		chomp;
+ 		my ( $key, $flag, $value ) = split( /\t/, $_ );
+ 		( $value ) = ( $value =~ m/^ *(.+) *$/ );
+ 		$main::Config{$key}        = [ $flag, $value ];
+ 	}
+ 	close( IN );
+} else {
+ 	print( STDOUT "Error: Cannot open \"config.cache\"\n" );
+ 	exit(-1);
+}
+
+
+foreach my $key ( sort keys %main::Config ) {
+ 	next if( ! $key );
+	my $replace = $main::Config{$key}->[1] || 0;
+	$data       =~ s/__\Q$key\E__/$main::Config{$key}->[1]/gs;
+}
+
+
+if( open( OUT, ">Config.pm" ) ) {
+	print( STDOUT qq(Writing "Config.pm"...\n) );
+	print( OUT $data );
+	close( OUT );
+} else {
+	print( STDOUT "Error: Cannot open \"Config.pm\"\n" );
+	exit(-1);
+}
+exit(0);

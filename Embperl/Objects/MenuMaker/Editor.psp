@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>MenuMaker Editor</title>
+    [- Execute ( $req_rec->lookup_uri( "/PSP/Style" )->filename() ) -]
+  </head>
+  <body class="PSP">
+
+    [$ if( $fdat{'x'} ) $]
+
+      [-
+        use NetSoup::XHTML::Widgets::MenuMaker::Drivers::Cascade;
+        use NetSoup::Files::Load;
+        use NetSoup::Files::Save;
+        my $Save    = NetSoup::Files::Save->new();
+        $stylesheet = "";
+        $Save->save( Pathname => $req_rec->lookup_uri( "/PSP/MenuMaker/MenuMaker.xml" )->filename(), Data => \$fdat{"x"} );
+        if( $fdat{"s"} ) {
+          $stylesheet = $fdat{"s"};
+          $Save->save( Pathname => $req_rec->lookup_uri( "/PSP/MenuMaker/Stylesheet.css" )->filename(), Data => \$fdat{"s"} );
+        } else {
+          $stylesheet = NetSoup::Files::Load->new()->immediate( Pathname => $req_rec->lookup_uri( "/PSP/MenuMaker/Stylesheet.css" )->filename() );
+        }
+      -]
+
+      [-
+        use NetSoup::XHTML::Widgets::MenuMaker::Drivers::Cascade;
+        my $Cascade = NetSoup::XHTML::Widgets::MenuMaker::Drivers::Cascade->new( EmitJS     => 1,
+                                                                                 CompressJS => 1,
+                                                                                 Stylesheet => $stylesheet,
+                                                                                 Hilite     => "DD0000",
+                                                                                 Normal     => "444488" );
+        $Cascade->build( Pathname => $req_rec->lookup_uri( "/PSP/MenuMaker/MenuMaker.xml" )->filename(),
+                         Target   => $req_rec->lookup_uri( "/PSP/MenuMaker/MenuMaker_Cascade.js" )->filename() );
+      -]
+
+      [-
+        use NetSoup::XHTML::Widgets::MenuMaker::Drivers::Sitemap;
+        my $Sitemap = NetSoup::XHTML::Widgets::MenuMaker::Drivers::Sitemap->new( WithSummary => 0 );
+        $Sitemap->build( Pathname => $req_rec->lookup_uri( "/PSP/MenuMaker/MenuMaker.xml" )->filename(),
+                         Target   => $req_rec->lookup_uri( "/PSP/MenuMaker/MenuMaker_Sitemap.html" )->filename() );
+      -]
+
+      <p>menu system updated</p>
+
+      <script language="JavaScript" type="text/javascript">
+        <!--
+          window.opener.location = window.opener.location;
+          window.close();
+        //-->
+      </script>
+
+    [$ else $]
+
+      <form method="GET" action="Editor" onSubmit="return(confirm('Are you sure you want to save changes to the menu system file?'))">
+        <table class="PSP">
+          <tbody>
+            <tr>
+              <td class="header">MenuMaker Editor</td>
+            </tr>
+            <tr>
+              <td>
+                <textarea class="PSP" name="x" cols="80" rows="40">[- Execute ( $req_rec->lookup_uri( "/PSP/MenuMaker/MenuMaker.xml" )->filename() ) -]</textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <textarea class="PSP" name="s" cols="80" rows="20">[- Execute ( $req_rec->lookup_uri( "/PSP/MenuMaker/Stylesheet.css" )->filename() ) -]</textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input class="PSP" type="submit" value="commit" />
+                <input class="PSP" type="button" value="cancel" onClick="window.close()"/>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+
+    [$ endif $]
+
+  </body>
+</html>

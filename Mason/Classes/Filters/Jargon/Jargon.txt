@@ -1,0 +1,2 @@
+content	<p>This is an example of a <strong>Jargon Buster</strong> Tooltip</p><p>As you can see, this can contain any kind of <em>HTML</em>.</p>
+

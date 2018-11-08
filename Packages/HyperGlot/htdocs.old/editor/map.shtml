@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>Html Editor: Map Window</title>
+    <style type="text/css">
+      <!--#include virtual="/HyperGlot/htdocs/styles.css"-->
+    </style>
+    <script language="JavaScript1.2">
+      <!--#include virtual="/HyperGlot/JavaScript/map.java"-->
+    </script>
+  </head>
+  <body>
+    <h1 align="center">Project Map</h1>
+    <!--#include virtual="/cgi-bin/HyperGlot/hMap.cgi?$QUERY_STRING"-->
+  </body>
+</html>

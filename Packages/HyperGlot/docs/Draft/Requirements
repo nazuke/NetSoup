@@ -1,0 +1,17 @@
+HyperGlot System Requirements
+
+
+Server:
+	Linux 2.2.x
+	Apache 1.3.6
+	Perl 5.5.x
+	NetSoup for Perl
+
+
+Clients:
+	Netscape Communicator 4.7
+ 
+
+
+Source Data:
+	XML 1.0 or XHTML 1.0 compliant documents

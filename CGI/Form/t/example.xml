@@ -1,0 +1,113 @@
+<Validate>
+
+
+	<!-- string | int | float | list | multiple -->
+
+
+	<string name="string" mandatory="yes" minlength="16" maxlength="128">
+
+		<allowed>
+		</allowed>
+
+		<error>
+
+			<general>Please fill out field "string"</general>
+
+			<invalid>"string" is invalid</invalid>
+
+			<short>"string" is too short</short>
+
+			<long>"string" is too long</long>
+
+		</error>
+
+	</string>
+
+
+
+
+	<int name="int" min="16" max="32">
+
+		<error>
+
+			<general>Please fill out field "int"</general>
+
+			<invalid>"int" is invalid</invalid>
+
+			<min>"int" is too small</min>
+
+			<max>"int" is too large</max>
+
+		</error>
+
+	</int>
+
+
+
+
+	<float name="float" min="16" max="32">
+
+		<error>
+
+			<general>Please fill out field "float"</general>
+
+			<invalid>"float" is invalid</invalid>
+
+			<min>"float" is too small</min>
+
+			<max>"float" is too large</max>
+
+		</error>
+
+	</float>
+
+
+
+
+	<list name="list">
+
+		<allowed>
+			<item>one</item>
+			<item>two</item>
+			<item>three</item>
+		</allowed>
+
+		<error>
+
+			<general>Please pick an item from "list"</general>
+
+			<invalid>"list" is invalid</invalid>
+
+		</error>
+
+	</list>
+
+
+
+
+	<multiple name="multiple" min="1" max="2">
+
+		<allowed>
+			<item>one</item>
+			<item>two</item>
+			<item>three</item>
+		</allowed>
+
+		<error>
+
+			<general>Please fill out field "multiple"</general>
+
+			<invalid>"multiple" is invalid</invalid>
+
+			<min>Picked too few from "multiple"</min>
+
+			<max>Picked too many from "multiple"</max>
+
+		</error>
+
+	</multiple>
+
+
+
+
+</Validate>

@@ -1,0 +1,16 @@
+#!/usr/local/bin/perl -w
+
+package NetSoup::Mason::Classes::JS::Public;
+use strict;
+@NetSoup::Mason::Classes::JS::Public::ISA = qw();
+my $JavaScript = join( "", <NetSoup::Mason::Classes::JS::Public::DATA> );
+1;
+
+
+sub js {
+  my $JS = shift;
+  return( $JavaScript );
+}
+
+
+__DATA__

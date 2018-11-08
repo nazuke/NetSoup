@@ -1,0 +1,5 @@
+this is a long link	/somedir/first/file.html
+this is a long link too	/someotherdir/another/files.shtml
+customers	/somefiles/customers/somefile
+some other stuff	http://localhost/others/customers/widgets
+ts

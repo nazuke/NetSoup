@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>HyperGlot: Chooser</title>
+			<style type="text/css">
+				<!--#include virtual="/HyperGlot/styles.css"-->
+			</style>
+			<script language="JavaScript1.2">
+				<!--#include virtual="/HyperGlot/chooser/functions.java"-->
+				function thishost() {
+					return( "<!--#echo var="HTTP_HOST"-->" );
+				}
+			</script>
+	</head>
+	<body>
+		<div class="logoLogin">
+			<img src="../Logo/HyperGlot-Medium.jpg" width="160" height="120"/>
+		</div>
+		<h1 align="center">HyperGlot Chooser</h1>
+		<hr/>
+		<!--#include virtual="/cgi-bin/HyperGlot/Chooser.cgi"-->
+		<hr/>
+		<form method="POST" action="http://<!--#echo var="HTTP_HOST"-->/cgi-bin/HyperGlot/Logout.cgi">
+			<input class="buttonsLogout" type="submit" value="Logout"/>
+		</form>
+	</body>
+</html>

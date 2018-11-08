@@ -1,0 +1,77 @@
+=head1 NAME
+
+GTP - Glossary Translation Transport Protocol
+
+
+=head1 SYNOPSIS
+
+    glotd.pl
+
+
+=head1 DESCRIPTION
+
+GTP is a simple network protocol for exchanging human language data between a client and NetSoup glossary server.
+
+
+=head1 PROTOCOL
+
+The protocol format is very loosely borrowed from HTTP.
+
+
+=head2 Client Request
+
+The client always initiates a connection to the server process.
+
+  <CLIENT_REQUEST>
+      [Header]
+      SOURCE_LANG: LANGUAGE\r\n
+      TARGET_LANG: LANGUAGE\r\n
+      [Blank Line]
+      ID\tSource_Lang\tTarget_Lang\r\n
+      ...
+
+The client transmits a header detailing the source and target language codes.
+
+The header is terminated by a black line containing only a carriage return followed by a line feed.
+
+The client then transmits the body part containing string ID codes, source string and a target string. The ID is for use by the client to identify returned string values as they may be in an arbitrary order. If the client is sending un-translated text then the Source_Lang and the Target_Lang strings will be the same.
+
+
+=head2 Server Response
+
+The server response is supplied in an identical format to the client request. The server preserves the ID's supplied by the client request.
+
+  <SERVER_REPLY>
+      [Header]
+      SOURCE_LANG: LANGUAGE\r\n
+      TARGET_LANG: LANGUAGE\r\n
+      [Blank Line]
+      ID\tSource_Lang\tTarget_Lang\r\n
+      ...
+
+The server responds by looking up each source string in the target database and returns a translated equivalent if one is found.
+
+
+=head1 SCENARIO
+
+It is intended that during a tranlsation session a client should call the server to obtain suggested translations, and to provide new translated material.
+
+For instance, an Html translation application may extract the text from an Html file, query the server for suggested translations and include those in the text file for the human translator.
+
+Once the translator has translated the text file, the Html extraction application can then send the Source_Lang and translated Target_Lang strings to the server to be integrated into its database.
+
+
+=head1 COPYING
+
+Copyright (C) 2000 Jason Holland
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+
+
+=head1 AUTHOR
+
+Jason Holland I<jason.holland@dial.pipex.com>

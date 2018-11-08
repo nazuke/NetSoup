@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+  <head>
+    <title>Test Document</title>
+  </head>
+  <body>
+
+    <h1>Multiple Segments</h1>
+
+    <script language="PerlXML">
+      <![CDATA[
+      	$Document->out( "<p>Segment 1</p>\n" );
+      ]]>
+    </script>
+
+		<hr/>
+
+    <script language="PerlXML">
+      <![CDATA[
+      	$Document->out( "<p>Segment 2</p>\n" );
+      ]]>
+    </script>
+
+		<hr/>
+
+    <script language="PerlXML">
+      <![CDATA[
+      	$Document->out( "<p>Segment 3</p>\n" );
+      ]]>
+    </script>
+
+		<hr/>
+
+    <script language="PerlXML">
+      <![CDATA[
+      	$Document->out( "<p>Segment 4</p>\n" );
+      ]]>
+    </script>
+
+  </body>
+</html>

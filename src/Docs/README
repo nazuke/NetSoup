@@ -1,0 +1,31 @@
+###############################################################################
+#                                                                             #
+#                                                                             #
+#  Copyright (C) 2000  Jason Holland <jason.holland@dial.pipex.com>           #
+#                                                                             #
+#  This program is free software; you can redistribute it and/or modify       #
+#  it under the terms of the GNU General Public License as published by       #
+#  the Free Software Foundation; either version 2 of the License, or          #
+#  (at your option) any later version.                                        #
+#                                                                             #
+#  This program is distributed in the hope that it will be useful,            #
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of             #
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the              #
+#  GNU General Public License for more details.                               #
+#                                                                             #
+#  You should have received a copy of the GNU General Public License          #
+#  along with this program; if not, write to the Free Software                #
+#  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA  #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+
+NetSoup is a collection of Perl 5.0 class libraries and applications I have built over a period of time for processing text, XML and XHTML. As well as class libraries, there are also a number of small applications and frameworks built to exploit them.
+
+The STATUS file contains details about which classes and programs are currently in the development stage, are in beta and those which I consider to be stable and ready for public consumption.
+
+For more information about using these classes in your own scripts, please read the PODs located in the pod directories, or point your browser at the index.html file in the top level directory. However, as usual the code gets written first, and the documentation never; so in many cases you will probably just have to look at the code itself.
+
+
+Jason Holland <jason.holland@dial.pipex.com>

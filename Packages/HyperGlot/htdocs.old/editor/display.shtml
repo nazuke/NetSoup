@@ -1,0 +1,12 @@
+<html>
+  <head>
+    <title>Html Editor: Display Window</title>
+    <style type="text/css">
+      <!--#include virtual="/HyperGlot/htdocs/styles.css"-->
+    </style>
+  </head>
+  <body>
+    <h1 align="center">Display Window</h1>
+    <h2 align="center">No Document Loaded</h2>
+  </body>
+</html>

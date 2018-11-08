@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<test:attributes>
+
+
+	<!-- This XML Document excercises the attribute parsing of the Preprocessor -->
+
+
+	<!-- Without Namespace -->
+
+	<single-quoted>
+		<p width='1000'>
+			Some text.
+		</p>
+		<picture source='picture.gif' width='320' height='240'/>
+		<p width='1000' colour='black'>
+			Some more text.
+		</p>
+	</single-quoted>
+
+
+	<double-quoted>
+		<p width="1000">
+			Some text.
+		</p>
+		<picture source="picture.gif" width="320" height="240"/>
+		<p width="1000" colour="black">
+			Some more text.
+		</p>
+	</double-quoted>
+
+
+	<!-- With Namespace -->
+
+	<test:single-quoted>
+		<test:p test:width='1000'>
+			Some text.
+		</test:p>
+		<test:picture test:source='picture.gif' test:width='320' test:height='240'/>
+		<test:p test:width='1000' test:colour='black'>
+			Some more text.
+		</test:p>
+	</test:single-quoted>
+
+
+	<test:double-quoted>
+		<test:p test:width="1000">
+			Some text.
+		</test:p>
+		<test:picture test:source="picture.gif" test:width="320" test:height="240"/>
+		<test:p test:width="1000" test:colour="black">
+			Some more text.
+		</test:p>
+	</test:double-quoted>
+
+
+	<test:equals>
+		<test:tag attrib='======'/>
+		<test:tag attrib='-=-=-='/>
+		<test:tag attrib="======"/>
+		<test:tag attrib="-=-=-="/>
+	</test:equals>
+
+
+	<test:quotes>
+		<test:tag attrib='""""'/>
+		<test:tag attrib="''''"/>
+	</test:quotes>
+
+
+</test:attributes>

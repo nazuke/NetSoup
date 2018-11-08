@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<title>Events</title>
+	</head>
+	<body>
+
+
+		<h1>Events</h1>
+
+
+		<script language="PerlXML">
+			<![CDATA[
+				$Document->include( URL => "http://rattlehead/xml-docs/examples/events/Events.pxml" );
+			]]>
+		</script>
+
+
+
+	</body>
+</html>

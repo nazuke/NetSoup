@@ -1,0 +1,10 @@
+Error: /stackunderflow in exch
+Operand stack:
+   message
+Execution stack:
+   %interp_exit   .runexec2   --nostringval--   --nostringval--   --nostringval--   2   %stopped_push   --nostringval--   2   3   %oparray_pop   --nostringval--   --nostringval--   false   1   %stopped_push   1   3   %oparray_pop   1   3   %oparray_pop   .runexec2   --nostringval--   --nostringval--   --nostringval--   2   %stopped_push   --nostringval--   --nostringval--   --nostringval--   --nostringval--
+Dictionary stack:
+   --dict:909/941(G)--   --dict:0/20(G)--   --dict:59/200(L)--   --dict:0/5(L)--
+Current allocation mode is local
+Current file position is 1511
+GS<1>

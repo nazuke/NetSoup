@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+  <head>
+    <title></title>
+  </head>
+
+  <body>
+
+
+    <!--#include virtual="MenuMaker_Cascade.shtml"-->
+
+
+		<script language="JavaScript">
+			<!--
+			for( var i = 0 ; i <= 24 ; i++ ) {
+			document.writeln("<br/>");
+			}
+			//-->
+		</script>
+
+
+		<input type="text" id="scratch" size="80" /><br />
+
+
+		<input type="button" value="Click Me" onClick="MMcc()" />
+
+
+		<script language="JavaScript">
+			<!--
+			for( var i = 0 ; i <= 50 ; i++ ) {
+			document.writeln("<br/>");
+			}
+			//-->
+		</script>
+
+
+	</body>
+</html>

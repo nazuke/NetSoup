@@ -1,0 +1,104 @@
+#!/usr/local/bin/perl -w
+# This script generates the NetSoup documentation files.
+# It is called by "make Docs".
+use src::lib::Directory;
+my $arg = shift;
+if( $arg =~ m/^BUILD_TREE$/ ) {
+	line( "Building Html Documentation Index..." );
+	my $date     = gmtime( time );
+	my $content  = "";
+	my $pathname = shift;
+	my $dir      = src::lib::Directory->new();
+	my %hash     = ();
+	my $callback = sub {
+		my $docfile         = shift;
+		my ( $path, $name ) = ( $docfile =~ m:^(.+)/([^\.]+)\.pod$: );
+		if( ( defined $path ) && ( -e "$path/$name.pod" ) ) {
+			my $htmlfile = "$path/$name.html";
+			my $key      = $htmlfile;
+			$key         =~ s:/pod/:/:;
+			$key         =~ s/^\./NetSoup/;
+			$hash{$key}  = $htmlfile;
+		}
+		return(1);
+	};
+	$dir->descend( Pathname    => $pathname,
+								 Recursive   => 1,
+								 Directories => 0,
+								 Callback    => $callback );
+ CONTENT: foreach my $key ( sort( keys( %hash ) ) ) {
+		line( "Linking to $key" );
+		next CONTENT if $key =~ m:^NetSoup/Template.html$:;
+		my $margin   = ( ( $hash{$key} =~ s:/:/:g ) - 1) * 25;
+		my $indent   = qq(style="margin-left: $margin px;");
+		my ( $name ) = ( $hash{$key} =~ m:^.+/([^\.]+)\.[^\.]+$: );
+		my $alt      = $key;
+		$alt         =~ s-/-::-g;
+		$content    .= qq(\t<h3 $indent ><a href="$hash{$key}" alt="$alt">$name</a></h3>\n);
+	}
+	if( open( FILE, ">index.html" ) ) {
+		while( <DATA> ) {
+			s/<!--DATE-->/$date/gi;
+			s/\t<!--CONTENT-->/$content/gi;
+			print( FILE );
+		}
+		close( FILE );
+	} else {
+		exit(-1);
+	}
+} elsif( $arg =~ m/BUILD_FILE/ ) {
+	my $infile    = shift;
+	my ( $title ) = ( $infile =~ m:^\.+/([^\.]+)\.[^\.]+$: );
+	my $outfile   = $infile;
+	$outfile      =~ s/\.pod$/\.html/;
+	line( qq(Making documentation for "$infile"...) );
+	system( "cat $infile | pod2html --netscape --title=$title > $outfile" );
+} elsif( $arg =~ m/CLEAN_FILE/ ) {
+	my $infile  = shift;
+	my $outfile = $infile;
+	$outfile    =~ s/\.pod$/\.html/;
+	line( qq(Removing intermediate file "$outfile"...) );
+	unlink( $outfile );
+}
+exit(0);
+
+
+sub line {
+	my $message = shift;
+	print( STDOUT "$message\n" );
+	return(1);
+}
+
+
+__DATA__
+<html>
+	<head>
+		<title>NetSoup Reference</title>
+		<style type="text/css">
+			span.content {
+				margin-left: 60px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>NetSoup Reference</h1>
+		<p><em>Updated: <!--DATE--></em></p>
+		<p>This is the documentation for the NetSoup classes. The visual layout of this document shows the relationships between each of the files in the hierarchy, each nested class is indented to the right of the class above it. Please note that this <em>does not</em> indicate the inheritence relationships between all classes; in most cases inheritence travels from the bottom up, but there are exceptions to this rule.</p>
+		<p>Of course, as with most software projects the code is cut first; and the documentation never. I'm churning out new POD's as and when I consider a class to be relatively complete and usable, until then I don't usually bother. If you need information on a class that is not documented here, then please read the class source itself.</p>
+		<hr>
+		<span class="content">
+			<h3><a href="LICENCE">LICENCE</a></h3>
+			<h3><a href="README">README</a></h3>
+			<h3><a href="INSTALL">INSTALL</a></h3>
+			<h3><a href="STATUS">STATUS</a></h3>
+		</span>
+		<hr>
+		<span class="content">
+			<h3>NetSoup</h3>
+			<!--CONTENT-->
+        </span>
+        <hr>
+		<p>The NetSoup homepage is at <em><a href="http://www.jason.holland.dial.pipex.com/perl/NetSoup/">http://dspace.dial.pipex.com/jason.holland/perl/NetSoup/</a></em></p>
+		<p>And my email is <em><a href="mailto:jason.holland@dial.pipex.com">jason.holland@dial.pipex.com</a></em></p>
+	</body>
+</html>

@@ -1,0 +1,126 @@
+#!/usr/local/bin/perl
+#
+#   NetSoup::class.pm v00.00.01g 12042000
+#
+#   Copyright (C) 2000  Jason Holland <jason.holland@dial.pipex.com>
+#
+#   This program is free software; you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation; either version 2 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with this program; if not, write to the Free Software
+#   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
+#
+#   Description: This Perl 5.0 class provides access to NetSoup-wide
+#                installation specific information.
+#
+#
+#   Methods:
+#       new        -  This method is the object constructor for this class
+#       getConfig  -  This method gets a NetSoup key value
+#       setConfig  -  This method sets a NetSoup key value
+
+
+package NetSoup::Config;
+use strict;
+@NetSoup::Config::ISA = qw();
+%NetSoup::Config      = (
+
+												 #### GLOBAL KEYS ####
+
+												 LibPath            => "__LibPath__",                           # Location of libraries directory
+												 BinPath            => "__BinPath__",                           # Location of binaries directory
+												 TmpPath            => "__TmpPath__",                           # Location of tmp files directory
+												 LogPath            => "__LogPath__",                           # Location of log files directory
+												 StorePath          => "__StorePath__",                         # Location of "Store" database files
+												 XMLStorePath       => "__XMLStorePath__",                      # Location of "XMLStore" database files
+												 GlotDBPath         => "__GlotDBPath__",                        # Location of language glossary database files
+
+												 ##### PACKAGES ######
+
+												 GlotDInstalled            => __GlotDInstalled__,               # True if GlotD installed
+												 GlotServPort              => __GlotServPort__,                 # Port number of the glossary database server
+												 GlotUseServ               => __GlotUseServ__,                  # Use glossary server daemon
+												 GlotServUser              => "__GlotServUser__",               # User to run glossary server as
+												 GlotServAddr              => "__GlotServAddr__",               # IP address or hostname of the glossary database server
+												 GlotClientPort            => __GlotClientPort__,               # Port number of the glossary database server
+
+												 HyperGlotInstalled        => __HyperGlotInstalled__,           # True if HyperGlot installed on host
+												 HyperGlotHostname         => "__HyperGlotHostname__",          # Hostname of HyperGlot machine
+												 HyperGlotServPort         => __HyperGlotServPort__,            # Port number of HyperGlot server
+												 HyperGlotCGIPath          => "__HyperGlotCGIPath__",           # Pathname for HyperGlot CGI scripts
+												 HyperGlotHtmlPath         => "__HyperGlotHtmlPath__",          # Pathname for HyperGlot Html documents
+												 HyperGlotVirtPath         => "__HyperGlotVirtPath__",          # Pathname for Apache virtual web sites
+												 HyperGlotProjPath         => "__HyperGlotProjPath__",          # Pathname for HyperGlot projects
+
+												 InterceptorInstalled      => __InterceptorInstalled__,         # True if Interceptor installed on host
+												 InterceptorCGIPath        => '__InterceptorCGIPath__',         # Pathname for Interceptor CGI scripts
+												 InterceptorHostname       => '__InterceptorHostname__',        # Hostname of Interceptor machine
+												 InterceptorTargetHostname => '__InterceptorTargetHostname__',  # Hostname Interceptor should redirect to
+												 InterceptorTargetPath     => '__InterceptorTargetPath__',      # Pathname of file to redirect to
+												 InterceptorMailRecipient  => '__InterceptorMailRecipient__'    # E-mail address to mail reports to
+
+												);
+1;
+
+
+sub new {
+	# This method is the object constructor for this class.
+	# In general, this should never be used.
+	my $package = shift;
+	my $class   = ref( $package ) || $package;
+	return( bless( {}, $class ) );
+}
+
+
+sub getConfig {
+	# This method gets a NetSoup key value.
+	# Calls:
+	#    none
+	# Parameters Required:
+	#    object
+	#    hash    {
+	#              Key => $key
+	#            }
+	# Result Returned:
+	#    $scalar | undef
+	# Example:
+	#    my $value = $object->getConfig( Key => $value );
+	my $object = shift;                              # Get object
+	my %args   = @_;                                 # Get arguments
+	if( exists $NetSoup::Config{$args{Key}} ) {
+		return( $NetSoup::Config{$args{Key}} );        # Return key value
+	} else {
+		$object->fatal( "No such key:\t$args{Key}" );  # DEBUG
+	}
+	return( undef );                                 # Return undefined
+}
+
+
+sub setConfig {
+	# This method sets a NetSoup key value.
+	# Calls:
+	#    none
+	# Parameters Required:
+	#    object
+	#    hash    {
+	#              Key   => $key
+	#              Value => $value
+	#            }
+	# Result Returned:
+	#    boolean
+	# Example:
+	#    my $value = $object->setConfig( Key => $value );
+	my $object = shift;                           # Get object
+	my %args   = @_;                              # Get arguments
+	$NetSoup::Config{$args{Key}} = $args{Value};  # Set key value
+	return(1);
+}

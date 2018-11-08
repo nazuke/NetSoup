@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE validate SYSTEM "Validate.dtd">
+	
+<validate>
+
+
+	<field type="string" name="a_string" mandatory="1" minlength="4" maxlength="8">
+		<general>Please fill out field "string"</general>
+		<invalid>"string" is invalid</invalid>
+		<short>"string" is too short</short>
+		<long>"string" is too long</long>
+	</field>
+	
+	
+  <field type="int" name="a_int" mandatory="1" min="16" max="32">
+		<general>Please fill out field "int"</general>
+		<invalid>"int" is invalid, it must be an integral number</invalid>
+		<min>"int" is too small, it must be between 16 and 32</min>
+    <max>"int" is too large, it must be between 16 and 32</max>
+	</field>
+
+
+	<field type="float" name="a_float" mandatory="1" min="16.6" max="32.3">
+		<general>Please fill out field "float"</general>
+		<invalid>"float" is invalid, it must be a floating point value</invalid>
+		<min>"float" is too small</min>
+		<max>"float" is too large</max>
+	</field>
+
+
+	<field type="email" name="a_email" mandatory="1">
+    <general>Please fill out field "email"</general>
+    <invalid>"email" contain an @ and at least one . character</invalid>
+	</field>
+
+
+
+
+
+
+
+
+
+
+	<field type="list" name="list" mandatory="1">
+		<general>Please pick an item from "list"</general>
+		<invalid>"list" is invalid</invalid>
+		<allowed>
+			<item>one</item>
+			<item>two</item>
+			<item>three</item>
+		</allowed>
+	</field>
+	
+	
+	<field type="multiple" name="multiple" mandatory="1" min="1" max="2">
+		<general>Please fill out field "multiple"</general>
+		<invalid>"multiple" is invalid</invalid>
+		<min>Picked too few from "multiple"</min>
+		<max>Picked too many from "multiple"</max>
+		<allowed>
+			<item>one</item>
+			<item>two</item>
+			<item>three</item>
+		</allowed>
+	</field>
+	
+
+</validate>

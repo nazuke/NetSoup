@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <title>HyperGlot</title>
+        <script language="JavaScript1.2">
+            window.location = "<!--#include virtual="/cgi-bin/HyperGlot/Login.cgi"-->";
+        </script>
+    </head>
+    <body>
+        <p>You need to <a href="./login/">login</a>.</p>
+    </body>
+</html>

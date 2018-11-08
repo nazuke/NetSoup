@@ -1,0 +1,2 @@
+[- use NetSoup::Embperl::Classes::Sitemap::Summary -]
+[- Execute ( "MenuMaker_Sitemap.psp" ) -]

@@ -1,0 +1,2 @@
+REQUEST_METHOD	GET
+QUERY_STRING	function=web_word_count&form_language=uk&form_class=web_robot&form_type=word_count&address=http://128.0.0.1/index.html&sameserver=on&recursive=on&depth=100

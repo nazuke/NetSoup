@@ -1,0 +1,67 @@
+About HyperGlot
+
+
+Synopsis
+
+HyperGlot is a web browser based client/server XHTML 1.0 localisation system.
+
+The system is designed to facilitate the localisation and/or internationalisation of XHTML 1.0, or later, compliant web pages.
+
+
+History
+
+I'd had the idea for a system like HyperGlot knocking around for a while. One of the difficulties with HTML localisation is that there do not seem to be many, if any, tools available to make the task of translation easier.
+
+Most of the tools that are available are geared towards creating new material; not repurposing existing HTML.
+
+The net result is that either the human translator learns how to write HTML, JavaScript etc; or the editable text is extracted from the HTML markup and edited separately.
+
+For a while I put together some classes and tools in Perl that used a brute force pattern matching extraction scheme on HTML text. In the end this was proving fruitless as there were either too many variations in different peoples writing styles, or the patterns being searched for were becoming too complex and unwieldy.
+
+So in exasperation I set about writing a _real_ HTML parser in Perl, a system that actually understood the format of the data that it was looking at.
+
+I decided to split the parser into two main components: the preprocessor, and the compiler. Original eh?
+
+The preprocessor basically scans the raw data and builds a symbol table of tags and text.
+
+The compiler traverses the symbol table and builds a Document Object Model. More on that later.
+
+Again I ran into the problem that everyone has a different style of coding HTML, and not always correct either!
+
+The problem I had was that it seems impossible to successfully parse HTML 4.0 text without the parsing program becoming tied to a particular version of the HTML standard. I didn't want this because it would mean every time a new version of HTML came out, the parser would need to be modified.
+
+I gave up for a while.
+
+Then the W3C posted the XHTML 1.0 recommendation, and after reading it I realised it solved most of the problems involved in trying to make sense of HTML text.
+
+I got to work on the compiler again.
+
+As what I was trying to achieve was so similar to the DOM2 specification, I pulled that as well and sought to make the compiler as compatible as possible. It certainly taught me a few things about inheritance!
+
+
+Current State of Play
+
+The result is a DOM2 compiler system that Perl applications can use to read and write XML text. Programs may read in a chunk of XML compliant text, parse it, and traverse the DOM. the DOM structure may be manipulated and then serialised back out to XML text again.
+
+
+Where does HyperGlot fit in?
+
+HyperGlot uses this DOM2 compiler to locate the editable text strings in a chunk of XHTML text, and pull them out. Once the strings are translated HyperGlot can put them back again.
+
+What this means is that so long as HTML authors create HTML documents that are XHTML 1.0 compliant, they may be localised using HyperGlot.
+
+Existing, non-conformant, documents may be made conformant by using the HTMLTidy utility available from the W3C. The changes required are minimal, if the documents are well written in the first place, and will ensure future compatibility with newer browsers and other systems.
+
+
+What about JavaScript and VBScript?
+
+At the moment HyperGlot only looks for text in the HTML portion of a document. But because the system is DOM2 based, I intend to write further parsing modules to examine the text within scripting elements.
+
+
+How does it work?
+
+HyperGlot is a client/server based system, with all of the XML processing being carried out on the server side by a set of Perl CGI scripts, a regular version of the Apache web server is used to drive the CGI scripts.
+
+The user interface is via the Netscape Communicator web browser, presented as a JavaScript application.
+
+An optional simple translation memory provided in the form of a purpose written Glossary Server. This Glossary Server can optionally be run on a different machine to the machine hosting the CGI scripts. At the moment, this Glossary Server provides simple string storage and does not make any attempt to break a string into sentence or phrase structures. I intend to make the Glossary Server more sophisticated once the main system is complete.

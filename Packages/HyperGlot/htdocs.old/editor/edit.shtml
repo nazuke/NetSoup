@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>Html Editor: Edit Window</title>
+    <style type="text/css">
+      <!--#include virtual="/HyperGlot/htdocs/styles.css"-->
+    </style>
+    <script language="JavaScript1.2">
+      <!--#include virtual="/HyperGlot/JavaScript/store.java"-->
+    </script>
+  </head>
+  <body>
+    <h1 align="center">Edit Window</h1>
+    <h2 align="center">No Document Loaded</h2>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+	<head>
+		<title>HyperGlot: Login</title>
+		<style type="text/css">
+			<!--#include virtual="/HyperGlot/htdocs/styles.css"-->
+		</style>
+	</head>
+	<body>
+		<div class="logoLogin">
+			<img src="../docs/Logo/HyperGlot-Medium.jpg" width="160" height="120">
+		</div>
+		<h1 align="center">Project Login</h1>
+		<!--#include virtual="/cgi-bin/HyperGlot/hLogin.cgi"-->
+	</body>
+</html>

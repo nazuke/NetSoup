@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE test SYSTEM "DOCTYPE.dtd">
+
+<card>
+
+	<name>
+		<first>Armitage</first>
+		<shaft>This shouldn't be here</shaft>
+		<second>III</second>
+	</name>
+
+</card>

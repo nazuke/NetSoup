@@ -1,0 +1,54 @@
+<div>
+
+
+		<style type="text/css">
+
+			.Calendar_MonthContainer {
+				font-family:      Helvetica, Arial;
+				font-size:        12pt;
+				font-weight:      bold;
+				background-color: #6666AA;
+				color:            #FFFFFF;
+			}
+
+			.Calendar_MonthHeader {
+				font-family:      Helvetica, Arial;
+				font-size:        12pt;
+				font-weight:      bold;
+				background-color: #6666AA;
+				color:            #FFFFFF;
+			}
+
+			.Calendar_MonthCellWeek {
+				font-family:      Helvetica, Arial;
+				font-size:        10pt;
+				font-weight:      bold;
+				background-color: #8888DD;
+				color:            #FFFFFF;
+			}
+
+			.Calendar_MonthCellDay {
+				font-family:      Helvetica, Arial;
+				font-size:        10pt;
+				font-weight:      bold;
+				text-align:       right;
+				background-color: #AAAAEE;
+				color:            #FFFFFF;
+			}
+
+			.Calendar_MonthCellDayLink {
+				font-family:      Helvetica, Arial;
+				font-size:        10pt;
+				font-weight:      bold;
+				text-align:       right;
+				color:            #6666BB;
+				background-color: #FFFFFF;
+			}
+
+		</style>
+
+
+		<script language="PerlXML" src="Events.pm" />
+
+
+</div>

@@ -1,0 +1,31 @@
+<div id="main">		
+
+	<h2>What is NetSoup Anyway?</h2>
+
+	<p class="main">NetSoup is heavily under development.</p>
+	<p class="main">NetSoup is an organised collection of my own <a href="http://www.perl.com/">Perl</a> class libraries. Most of the code in there is geared towards manipulating data sourced from, or destined for, the Internet. Most notably, HTML.</p>
+	<p class="main">For instance, there's a, mostly working, XML parser and DOM2 compiler; a few bits of HTTP client code, and some CGI tools amongst other things. The direction of development has mostly been dictated by my working requirements.</p>
+	<p class="main">However, one consistent project I've been striving towards has been HyperGlot.</p>
+	<p class="main">HyperGlot is aiming to be a localisation system for XML/XHTML based web sites. The XML parser has enough functionality to be usable, and there's a simple translation memory client/server system in place. I'm just now starting work on the user interface elements, which will be written in Java.</p>
+	<p class="main">For more information, download the archive and check out the code yourself.</p>
+
+	<h2>System Requirements</h2>
+
+	<p class="main">NetSoup was developed under RedHat Linux 5.1 with Perl version 5.005_650. I always try to keep up to date with the latest Perl version. My particular Perl was built with threads enabled, so at some point I may write some classes that <em>require</em> a threaded Perl. Using an earlier version of Perl should not cause too many problems, but don't go any lower than 5.004_xx.</p>
+	<p class="main">Although developed under a Unix-style system, many of the classes are not necessarily Unix dependent. However, if you do intend to use these classes under some other system then please rummage through the code that deals with files, directories and pathnames; these pretty much contain stuff that is not very portable. I have made some attempt to detect the host system, and deal with it, but this is not a priority for me. As time goes on, NetSoup will almost definitely become more Unix dependant.</p>
+	<p class="main">To use the NetSoup classes, you basically need Perl installed, preferably under a Unix style system, and of course the ability to code in Perl.</p>
+
+	<h2>Installation</h2>
+	
+	<p class="main">I'm afraid that the installation procedure <strong>only</strong> works on a Unix-style system, even then it has only been tested on Linux.</p>
+	<p class="main">Please read the INSTALL file at the top level of the archive for installation instructions.</p>
+	<p class="main">The installation procedure is evolving rapidly, so make sure you read the instructions carefully before proceeding. And <strong>never</strong> install untested versions on a production installation.</p>
+
+	<h2>Comments</h2>
+
+	<p class="main">If you have any comments or suggestions, then please mail me at <a href="mailto:jason.holland@dial.pipex.com">jason.holland@dial.pipex.com</a>. I may contribute this to CPAN at some point in the future when it becomes more presentable.</p>
+	<p class="main">At the moment I'm doing this mostly for fun, but I would be interested in any comments you may have.</p>
+	<p class="main">Thanks!</p>
+	<p class="main"><img src="/media/netsoup/NetSoupCharged.jpg"/></p>
+
+</div>

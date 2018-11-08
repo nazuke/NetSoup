@@ -1,0 +1,6 @@
+  [+
+    use NetSoup::Files::Load;
+    $escmode     = 0;
+    my $content  = NetSoup::Files::Load->new()->immediate( Pathname => "/home/web/Projects/Perl/NetSoup/Embperl/Objects/t/content.html" );
+    NetSoup::Apache::Embperl::Filters::Jargon->filter( $req_rec, $content );
+  +]

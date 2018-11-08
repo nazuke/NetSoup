@@ -1,0 +1,27 @@
+<div>
+	<img src="/media/netsoup/NetSoup.tiny.jpg" width="79" height="54"/>
+	<p class="main">Download</p>
+	<p class="sidebar">Please read the <a href="tarballs/INSTALL">INSTALL</a> and <a href="tarballs/STATUS">STATUS</a> files for details about the scripts and classes that are considered <em>complete</em> and fairly usable. As this <em>is</em> an ongoing project I tend to have a funny priority when it comes to completing the various bits and pieces. These are the development archives, they are currently only available via HTTP as I only have a dial-up account. Enjoy.</p>
+	<table border="1" cellpadding="2" cellspacing="2">
+		<tr>
+			<td><p class="download">Version</p></td>
+			<td><p class="download">v00.00.01a</p></td>
+		</tr>
+		<tr>
+			<td><p class="download">Updated</p></td>
+			<td>
+				<p class="download">
+					<!--#include virtual="/netsoup/tarballs/updated.txt"-->
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td><p class="download">Download</p></td>
+			<td>
+				<p class="download">
+					<a href="/netsoup/tarballs/<!--#include virtual="/netsoup/tarballs/filename.txt"-->"><!--#include virtual="/netsoup/tarballs/filename.txt"--></a>
+				</p>
+			</td>
+		</tr>
+	</table>
+</div>

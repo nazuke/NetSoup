@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+  <head>
+    <title>PerlXML Telephone Database</title>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+  </head>
+  <body>
+
+
+    <script language="PerlXML">
+      <![CDATA[
+        $Document->include( File => "header.xml" );
+      ]]>
+    </script>
+
+
+		<script language="PerlXML" src="PhoneDB.pm" />
+
+
+    <script language="PerlXML">
+      <![CDATA[
+        $Document->include( File => "footer.xml" );
+      ]]>
+    </script>
+
+
+  </body>
+</html>

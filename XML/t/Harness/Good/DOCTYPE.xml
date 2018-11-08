@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE card SYSTEM "DOCTYPE.dtd">
+
+<card>
+
+	<name>
+		<first maxlength="24" mandatory="yes">Armitage</first>
+		<second maxlength="24" mandatory="yes">III</second>
+	</name>
+
+</card>

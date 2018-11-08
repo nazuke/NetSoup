@@ -1,0 +1,81 @@
+%!PS-Adobe-3.0
+%%Title: Some File
+%%Creator: NetSoup
+%%BoundingBox: 0 0 598.5 846
+%%Pages: 1
+%%LanguageLevel: 1
+%%EndComments
+
+
+%%BeginProlog
+
+/inch       72    def
+/halfinch   inch 2 div def
+/A4PageWidth  598.5 def
+/A4PageHeight 846   def
+
+
+/header {
+
+  /headerdict 10 dict def
+  headerdict begin
+
+    /titleString exch def
+
+%% Calculate the width of the title string
+    /Helvetica-Bold findfont
+    14 scalefont
+    setfont
+    A4PageWidth A4PageHeight halfinch sub moveto
+    /titleWidth titleString stringwidth pop def
+    /titleHeight titleString stringwidth exch pop def
+
+    gsave
+%% Draw header wide bar
+      newpath
+      0 A4PageHeight moveto
+      A4PageWidth 0 rlineto
+      0 0 halfinch sub rlineto
+      0 A4PageWidth sub 0 rlineto
+      0 halfinch rlineto
+      closepath
+      0 .4 .6 setrgbcolor
+      fill
+    grestore
+
+%% Draw header right-hand tab
+    gsave
+      newpath
+      A4PageWidth A4PageHeight halfinch sub moveto
+      0 titleWidth halfinch add sub 0 rlineto
+      0 halfinch rlineto
+      titleWidth halfinch add 0 rlineto
+      0 0 halfinch sub rlineto
+      closepath
+      .84 .10 .12 setrgbcolor
+      fill
+    grestore
+
+%% Draw the main title string
+    gsave
+      /titleX A4PageWidth titleWidth sub halfinch 2 div sub def
+      /titleY A4PageHeight halfinch 2 div titleHeight 2 div sub sub 5 sub def
+      titleX titleY moveto
+      1 setgray
+      titleString show
+    grestore
+
+  end
+
+} def
+
+%%EndProlog
+
+
+(this is the main title string) header
+
+
+showpage
+
+
+%%EOF

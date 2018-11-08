@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE menu SYSTEM "MenuMaker.dtd">
+
+<menu>
+
+
+	<item name="Menu">
+    <item name="Home" href="?c=/PSP/t/content" />
+    <item name="Press Archives" href="?c=/PSP/Press/Archives/2002/index.psp" />
+    <item name="Customers" href="?c=/PSP/t/customers" />
+    <item name="Tree" href="?c=/PSP/Index/t/Tree" />
+   </item>
+
+	<item name="Menu 2">
+    <item name="Groovy" href="?c=/PSP/t/groovy" />
+   </item>
+
+
+</menu>
+

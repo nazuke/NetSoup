@@ -1,0 +1,17 @@
+[-
+  use NetSoup::Files::Directory;
+  @paths        = ();
+  my $Directory = NetSoup::Files::Directory->new();
+  $pathname     = $req_rec->lookup_uri( $ENV{PSP_CUSTOMER_LIST} )->filename();
+  $Directory->descend( Pathname    => $pathname,
+                       Extensions  => [ "psp" ],
+                       Files       => 1,
+                       Directories => 0,
+                       Sort        => 1,
+                       Callback    => sub { push( @paths, shift ) } );
+-]
+
+[$ foreach $i ( @paths ) $]
+  [- Execute ( $i ) -]
+  [- Execute ( "$pathname/VIEW.template" ) -]
+[$ endforeach $]

@@ -1,0 +1,48 @@
+#!/usr/local/bin/perl -I../
+# This script is the NetSoup installer.
+# It is called by "make install".
+
+
+@INC = ();
+use NetSoup::Core;
+use src::lib::Files;
+%main::Config = ();
+my $core      = NetSoup::Core->new();
+my $targetlib = $core->getConfig( Key => "LibPath" ) . "/NetSoup";
+makedirs();
+line( "Installing into: $targetlib" );
+mkdir( $targetlib, 0755 ) if( ! -e $targetlib );
+system( "cp -r * $targetlib/" );
+system( "chown -R root:root $targetlib" );
+chdir( $targetlib );
+system( "make modes" );
+exit(0);
+
+
+sub makedirs {
+	my $files = src::lib::Files->new();
+	if( open( IN, "./config.cache" ) ) {
+		while( <IN> ) {
+			chomp;
+			my ( $key, $flag, $value ) = split( /\t/, $_ );
+			( $value ) = ( $value =~ m/^ *(.+) *$/ );
+			$main::Config{$key}        = [ $flag, $value ];
+		}
+		close( IN );
+	} else {
+		print( STDOUT "Error: Cannot open \"config.cache\"\n" );
+		exit(-1);
+	}
+	foreach my $key ( keys %main::Config ) {
+		if( $main::Config{$key}->[0] eq "dir" ) {
+			if( ! $files->buildTree( Pathname => $main::Config{$key}->[1],
+															 Bare     => 1 ) ) {
+				print( STDOUT "Error: Unable to built path to \"$main::Config{$key}->[1]\"\n" );
+				print( STDOUT "       Perhaps you do not have permission?\n" );
+			}
+		}
+	}
+}
+
+
+sub line { print( (shift) . "\n" ) }

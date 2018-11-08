@@ -1,0 +1,4 @@
+<nesting>
+	<good>This is good</good>
+	<bad>This is <em>very</bad> nesting.</em>
+</nesting>

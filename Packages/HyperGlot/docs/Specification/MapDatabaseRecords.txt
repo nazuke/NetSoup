@@ -1,0 +1,36 @@
+Map Database Records
+
+
+
+
+Fields:
+
+Title	URL	Pathname	Username	Status
+
+
+
+
+Values:
+
+Title		Title of document, or simple filename
+
+
+URL			Holds full URL of resource
+
+
+Pathname	Holds physical pathname of resource on server
+
+
+Username	Holds name of translator
+
+
+Status		Describes current status of resource
+
+			Not touched
+			In progress
+			Translated and not checked
+			Translated and checked
+			Translated and errors found
+			Translated and approved
+ound
+			Translated and approved

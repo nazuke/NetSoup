@@ -1,0 +1,29 @@
+XML Parser TODO
+
+
+Switch to enable/disable <?xml?> processing
+instruction when serialising.
+
+Switch to enable/disable detection of high ASCII
+characters when processing 7bit ASCII.
+
+
+
+attribute namespaces
+single quotes for quoting attributes
+full support for DTD tags
+
+
+
+
+Attribute quoting types must be recorded so that the serialiser can using the appropriate quotes during serialisation.
+
+
+
+
+This error is not caught:
+
+	<test:t ag attrib="''''"/>
+
+
+expand Parser error message importation

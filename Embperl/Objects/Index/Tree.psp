@@ -1,0 +1,7 @@
+[+
+  # Tree View Widget
+  use NetSoup::Apache::Index::Tree;
+  $escmode = 0;
+  my $Tree = NetSoup::Apache::Index::Tree->new( R => $req_rec );
+  $Tree->render();
++]

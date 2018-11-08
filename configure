@@ -1,0 +1,27 @@
+#!/bin/sh
+# This shell script bootstraps the Perl configure script.
+
+if perl -v 1>/dev/null 2>/dev/null; then
+	echo -e "Good, Perl found...\n"
+	rm -f config.cache
+	echo -e "Welcome to the simple NetSoup configure script.\n"
+	echo -e "You will be asked a series of simple questions, enter the\nappropriate answer or hit \"Enter\" to go with the default.\n"
+	if perl ./build/configure.pl; then
+		for DIR in ./Packages/* ; do
+			if( test -d $DIR ) ; then
+				if( test -e $DIR/build/configure.pl ) ; then
+					$DIR/build/configure.pl;
+				fi;
+			fi;
+		done;
+		echo -e "Now run \"make\" to build NetSoup\n"
+		echo -e "Alternatively you may do \"make Config.pm\" to make that\nmodule using this configuration.\n"
+	else
+		echo "An error occured whilst configuring NetSoup."
+		echo "The build cannot continue."
+	fi
+else
+	echo "Oh Artoo! How was I supposed to know you don't have Perl!"
+	echo "The configuration really can not continue!"
+	echo "You really do need to build and install Perl first."
+fi

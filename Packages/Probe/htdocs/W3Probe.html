@@ -1,0 +1,411 @@
+<html>
+    <head>
+        <title>W3Probe</title>
+        <style type="text/css">
+            body {
+                background: !!51441611799::0000000062!!ange;
+            }
+            h1, h2, h3, h4, h5, h6, h7 {
+                font-family: Helvetica, Lucida, Arial, sans-serif;
+                col!!51441611799::0000000064!!:       white;
+            }
+            p {
+                font-family: Helvetica, Lucida, Arial, sans-serif;
+                font-size:   10pt;
+                font-style:  bold;
+                col!!51441611799::0000000066!!:       white;
+            }
+            tr.dark {
+                background: dark!!51441611799::0000000068!!ange;
+            }
+            span.white {
+                font-family: Helvetica, Lucida, Arial, sans-serif;
+                font-style:  bold;
+                col!!51441611799::0000000070!!:       white;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <table b!!51441611799::0000000071!!der="0" width="99%" cellpadding="0" cellspacing="0">
+                <tr class="dark">
+                    <td width="2%">&nbsp;</td>
+                    <td width="48%" align="left" valign="center">
+                        <h1>W3Probe</h1>
+                    </td>
+                    <td width="50%" align="right" valign="center">
+                        <f!!51441611799::0000000072!!m method="POST" action="!!ADDRESS!!">
+                            <input type="hidden" name="function" value="help">
+                            <input type="submit" value="W3Probe Help">
+                        </f!!51441611799::0000000127!!m>
+                    </td>
+                </tr>
+            </table>
+            <f!!51441611799::0000000133!!m method="POST" action="!!ADDRESS!!">
+                <!-- START HIDDEN !!51441611799::0000000088!!IELDS -->
+                <input type="hidden" name="function" value="process">
+                <input type="hidden" name="s!!51441611799::0000000137!!t" value="countWords,identifyLanguages,countJpeg,countGif,analyseGif,identifyLinkedMedia,identifyScripts,identifyApplets,identifyPlugins,identifyCgiLinks,findEmail">
+                <!-- END HIDDEN FIELDS -->
+                <table border="0" cellpadding="4" cellspacing="0">
+                    <!-- Address -->
+                    <tr class="dark" valign="top">
+                        <td colspan="2">
+                                <h4>Location</h4>
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <td align="right" valign="center">
+                                <p>HTTP Address</p>
+                        </td>
+                        <td align="left" valign="center">
+                            <input type="text" name="address" size="46" maxlength="512">
+                        </td>
+                    </tr>
+                    <!-- Authorisation -->
+                    <tr class="dark" valign="top">
+                        <td colspan="2">
+                            <h4>Authorisation</h4>
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <td colspan="2" align="center" valign="center">
+                            <p>
+                                Username
+                                <input type="text" name="username" size="12" maxlength="128">
+                                &nbsp;
+                                Password
+                                <input type="text" name="password" size="12" maxlength="128">
+                            </p>
+                        </td>
+                    </tr>
+                    <!-- START SERVER OPTIONS -->
+                    <tr class="dark" valign="top">
+                        <td colspan="2">
+                                <h4>Server Options</h4>
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <td colspan="2">
+                            <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <!-- Stay On Same Server -->
+                                    <td width="20%" align="right">
+                                        <input type="checkbox" name="sameServer" checked>
+                                    </td>
+                                    <td width="30%" align="left">
+                                            <p>Stay On Same Server</p>
+                                    </td>
+                                    <!-- Follow CGI Links -->
+                                    <td width="20%" align="right">
+                                        <input type="checkbox" name="followCgi">
+                                    </td>
+                                    <td width="30%" align="left">
+                                            <p>Follow CGI Links</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- END SERVER OPTIONS -->
+                    <!-- START RECURSION OPTIONS -->
+                    <tr class="dark" valign="top">
+                        <td colspan="2">
+                                <h4>Link Options</h4>
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <td colspan="2">
+                            <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <!-- Recursion -->
+                                    <td width="20%" align="right">
+                                        <input type="checkbox" name="recursion" checked>
+                                    </td>
+                                    <td width="30%" align="left">
+                                            <p>Follow Links</p>
+                                    </td>
+                                    <!-- Recursion Depth -->
+                                    <td width="20%" align="right">
+                                        <input type="text" name="recursionDepth" size="8" maxlength="4">
+                                    </td>
+                                    <td width="30%" align="left">
+                                            <p>Link Depth</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- END RECURSION OPTIONS -->
+                    <!-- START ANALYSIS OPTIONS -->
+                    <tr class="dark" valign="top">
+                        <td colspan="2">
+                                <h4>Analysis Options</h4>
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <td colspan="2">
+                            <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <!-- Count Words -->
+                                    <td width="20%" align="right">
+                                        <input type="checkbox" name="countWords" checked>
+                                    </td>
+                                    <td width="30%" align="left">
+                                            <p>Count Words</p>
+                                    </td>
+                                    <!-- Identify Languages -->
+                                    <td width="20%" align="right">
+                                        <input type="checkbox" name="identifyLanguages" checked>
+                                    </td>
+                                    <td width="30%" align="left">
+                                            <p>Identify Languages</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <!-- Count JPEG Images -->
+                                    <td width="20%" align="right">
+                                        <input type="checkbox" name="countJpeg" checked>
+                                    </td>
+                                    <td width="30%" align="left">
+                                            <p>Count JPEG Images</p>
+                                    </td>
+                                    <!-- Count GIF Images -->
+                                    <td width="20%" align="right">
+                                        <input type="checkbox" name="countGif" checked>
+                                    </td>
+                                    <td width="30%" align="left">
+                                            <p>Count GIF Images</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <!-- Identify Linked Media -->
+                                    <td width="20%" align="right">
+                                        <input type="checkbox" name="identifyLinkedMedia" checked>
+                                    </td>
+                                    <td width="30%" align="left">
+                                            <p>Identify Linked Media</p>
+                                    </td>
+                                    <!-- Count GIF Images -->
+                                    <td width="20%" align="right">
+                                        <input type="checkbox" name="identifyScripts" checked>
+                                    </td>
+                                    <td width="30%" align="left">
+                                            <p>Identify Scripts</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <!-- Identify Scripts -->
+                                    <td width="20%" align="right">
+                                        <input type="checkbox" name="identifyScripts" checked>
+                                    </td>
+                                    <td width="30%" align="left">
+                                            <p>Identify Scripts</p>
+                                    </td>
+                                    <!-- Identify Applets -->
+                                    <td width="20%" align="right">
+                                        <input type="checkbox" name="identifyApplets" checked>
+                                    </td>
+                                    <td width="30%" align="left">
+                                            <p>Identify Applets</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <!-- Identify Plug-Ins -->
+                                    <td width="20%" align="right">
+                                        <input type="checkbox" name="identifyPlugins" checked>
+                                    </td>
+                                    <td width="30%" align="left">
+                                            <p>Identify Plug-Ins</p>
+                                    </td>
+                                    <!-- Identify CGI Links -->
+                                    <td width="20%" align="right">
+                                        <input type="checkbox" name="identifyCgiLinks" checked>
+                                    </td>
+                                    <td width="30%" align="left">
+                                            <p>Identify CGI Links</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <!-- Find E-Mail Addresses -->
+                                    <td width="20%" align="right">
+                                        <input type="checkbox" name="findEmail" checked>
+                                    </td>
+                                    <td width="30%" align="left">
+                                            <p>Find E-Mail Addresses</p>
+                                    </td>
+                                    <!-- NULL -->
+                                    <td width="20%" align="right">
+                                        &nbsp;
+                                    </td>
+                                    <td width="30%" align="left">
+                                        &nbsp;
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr class="dark" valign="top">
+                        <td colspan="2">
+                                <h4>Special Language Options</h4>
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <td colspan="2">
+                            <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <!-- Include Languages -->
+                                    <td rowspan="2" align="right">
+                                        <select name="languageList" multiple>
+                                            <option selected>Brazilian Portugeuse
+                                                <option selected>Danish</option>
+                                                <option selected>Dutch</option>
+                                                <option selected>English</option>
+                                                <option selected>Finnish</option>
+                                                <option selected>French</option>
+                                                <option selected>German</option>
+                                                <option selected>Italian</option>
+                                                <option selected>Norwegian</option>
+                                                <option selected>Spanish</option>
+                                                <option selected>Swedish</option>
+                                        </select>
+                                    </td>
+                                    <td align="right" valign="bottom">
+                                        &nbsp;
+                                    </td>
+                                    <td align="left" valign="top">
+                                            <p>Include Languages</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <!-- Include Indeterminate Languages -->
+                                    <td align="right" valign="center">
+                                        <input type="checkbox" name="includeIndeterminate" checked>
+                                    </td>
+                                    <td align="left" valign="center">
+                                            <p>Include Indeterminate Languages</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- END ANALYSIS OPTIONS -->
+                    <!-- BEGIN REPORT OPTIONS -->
+                    <tr class="dark" valign="top">
+                        <td colspan="2">
+                                <h4>Report Options</h4>
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <td colspan="2">
+                            <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <!-- Text Report -->
+                                    <td width="20%" align="right">
+                                        <input type="checkbox" name="textReport" checked>
+                                    </td>
+                                    <td width="30%" align="left">
+                                            <p>Text Report</p>
+                                    </td>
+                                    <!-- Html Report -->
+                                    <td width="20%" align="right">
+                                        <input type="checkbox" name="htmlReport" checked>
+                                    </td>
+                                    <td width="30%" align="left">
+                                            <p>Html Report</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- END REPORT OPTIONS -->
+                    <!-- BEGIN MAILING OPTIONS -->
+                    <tr class="dark" valign="top">
+                        <td colspan="2">
+                                <h4>Mailing Options</h4>
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <td colspan="2">
+                            <table border="0" width="100%" cellpadding="0" cellspacing="4">
+                                <tr>
+                                    <!-- E-Mail Report File -->
+                                    <td align="right">
+                                        <input type="checkbox" name="emailReport" checked>
+                                    </td>
+                                    <td align="left" valign="center">
+                                            <p>E-Mail Report File</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <!-- E-Mail Address Field -->
+                                    <td align="right">
+                                        <input type="text" name="emailAddress" value="" size="40" maxlength="128">
+                                    </td>
+                                    <td align="left" valign="center">
+                                            <p>E-Mail Address</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- END MAILING OPTIONS -->
+                    <!-- BEGIN OTHER OPTIONS -->
+                    <tr class="dark" valign="top">
+                        <td colspan="2">
+                                <h4>Other Options</h4>
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <td colspan="2">
+                            <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <!-- Use Disk Storage -->
+                                    <td width="20%" align="right">
+                                        <input type="checkbox" name="useDisk">
+                                    </td>
+                                    <td width="30%" align="left">
+                                            <p>Use Disk Storage</p>
+                                    </td>
+                                    <!-- NULL -->
+                                    <td width="20%" align="right">
+                                        &nbsp;
+                                    </td>
+                                    <td width="30%" align="left">
+                                        &nbsp;
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- END OTHER OPTIONS -->
+                    <tr class="dark">
+                        <!-- Submit/Reset Buttons -->
+                        <td>&nbsp;</td>
+                        <td align="right" valign="center">
+                            <input type="reset" value="Reset&nbsp;Form">
+                            <input type="submit" name="submit" value="Begin&nbsp;Analysis">
+                        </td>
+                    </tr>
+                </table>
+                <br>
+            </form>
+            <table border="0" width="99%" cellpadding="4" cellspacing="0">
+                <tr>
+                    <td align="right" valign="top">
+                        <span class="white">W3Grab is Copyright (C) 2000 <a href="mailto:jason.holl!!51441611799::0000000003!!@dial.pipex.com" subject="W3Grab">Jason&nbsp;Holl!!51441611799::0000000008!!</a>.</span><br>
+                        <span class="white">W3Grab is distributed under the terms of the GNU General Public Licence.</span><br>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </body>
+</html>
+ight (C) 2000 <a href="mailto:jason.holl!!51441611799::0000000003!!@dial.pipex.com" subject="W3Grab">Jason&nbsp;Holl!!51441611799::0000000008!!</a>.</span><br>
+                        <span class="white">W3Grab is distributed under the terms of the GNU General Public Licence.</span><br>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </body>
+</html>

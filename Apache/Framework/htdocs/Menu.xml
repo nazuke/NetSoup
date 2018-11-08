@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE menu SYSTEM "MenuMaker.dtd">
+
+<menu>
+	
+	<item name="Menu">
+
+		<item name="Item One">
+			<item name="Test Content"                href="?c1=Content" />
+			<item name="TreeView Widgets in Content" href="?c1=TreeView" />
+			<item name="SQL Table"                   href="?c1=SQL" />
+			<item name="Test Content"                href="?c1=c4" />
+		</item>
+
+		<item name="Item Two">
+		</item>
+
+		<item name="Item Three">
+		</item>
+
+	</item>
+
+</menu>

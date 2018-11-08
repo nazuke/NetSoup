@@ -1,0 +1,14 @@
+<html>
+	<head>
+		<title>HyperGlot: Map</title>
+		<style type="text/css">
+			<!--#include virtual="/HyperGlot/styles.css"-->
+		</style>
+	</head>
+	<body>
+		<applet code="Editor.class" archive="Editor.jar" codebase="/HyperGlot/editor/" width="600" height="200">
+			<param name="Display" value="http://dial.pipex.com/HyperGlot/editor/display.shtml"/>
+			<param name="Target"  value="DisplayPane"/>
+		</applet>
+	</body>
+</html>

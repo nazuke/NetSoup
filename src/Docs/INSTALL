@@ -1,0 +1,169 @@
+=head1 NAME
+
+Installing NetSoup
+
+
+=head1 WARNING!
+
+Please read the LICENCE before using this software. This software is heavily under development an may not work properly.
+
+The installer has only been tested on RedHat Linux 5.1 with Perl 5.6.0. If you do not want to run the installation procedure you can simply copy the NetSoup directory to your $PERLLIB/site/lib directory manually. This is known to work for Windows NT 4.0 with Perl 5.6.0, MacOS 8.6 with Perl 5.4 and RedHat Linux 7.0 with Perl 5.6.0. Naturally, NetSoup will lack site specific configuration options.
+
+
+=head1 SYNOPSIS
+
+    $ zcat NetSoup.tar.gz | tar -xf -
+    $ cd NetSoup
+    $ ./configure
+    $ make
+    $ su
+    # make install
+    # make test
+
+
+=head1 DESCRIPTION
+
+These are the installation instructions for installing the NetSoup class libraries for Perl 5.0 on a Unix-style system.
+
+
+=head1 SYSTEM REQUIREMENTS
+
+The NetSoup libraries require Perl 5.5.650, or newer, and a Unix-like operating system. The classes were developed under RedHat Linux 7.0.
+
+To configure the software on Unix-like systems you will need a working shell, such as C<bash> or C<sh>. For other operating systems you'll have to brass it, although I do regularly use these classes on Macintosh.
+
+Please bear in mind that because this software was developed primarily under Linux, much of it is heavily Unix based. However, because I also require it to mostly work under MacOS, I have made an effort to make much of the code compatible with that system as well. Unfortunately, because I don't use Win32 too often for any real work (who does?), there will almost certainly be problems on that system.
+
+
+=head1 INSTALLATION
+
+Assuming you already have Perl 5.0 installed, and that you have already retrieved and upacked a copy of the NetSoup tar archive; go into the newly created NetSoup directory
+
+    $ cd NetSoup
+
+and at the shell prompt type
+
+    $ sh ./configure
+
+This configures certain site-specific settings and builds the C<Config.pm> module. You will be asked a series of simple questions, each of which you may set explicitly or leave as their, hopefully sensible, defaults.
+
+Note: As some of the Packages inside NetSoup are client/server based you will probably require different settings depending on what kind of machien NetSoup is installed on.
+
+Next type
+
+    $ make
+
+This will compile any necessary files and builds the Config.pm module. There are no C/C++ extensions to compile (yet), so this should not take too long. Once you have done this you will need to become C<root> to install NetSoup in amongst your Perl libraries
+
+    $ su
+
+Once you are C<root> type...
+
+    # make install
+
+This will copy all of the necessary files into the Perl library directory. The installer uses the I<Standard Perl Library> C<Config.pm> module to determine which directory to install into. The directory searched for is (usually) C<Config{installsitelib}>.
+
+Once everything is installed you may type...
+
+    # make test
+
+If NetSoup is installed correctly you should see something like this:
+
+    NetSoup::Core   %1701    If you can read this then NetSoup is installed!
+
+If not, oops! Something has gone wrong.
+
+
+=head1 DOESN'T WORK?
+
+If you cannot get NetSoup to install and function, then please e-mail me. I will look into it when I get the time. Remember to include the following details:
+
+    Perl version
+    Operating System and version
+    Any error messages related to the problem
+    A quote from Star Wars
+
+Like I said elsewhere, I am doing this for fun, so please be patient.
+
+Thanks for trying NetSoup!
+
+
+
+
+=head1 MAKEFILE TARGETS
+
+The following documents some of the Makefile targets that may be built independent of the regular installation process. This is mostly for my own use and seems like a sensible place to document it.
+
+    make all
+
+This makes everything and should be run directly after a C<./configure>.
+
+    make modes
+
+This sets permissions on all NetSoup Perl scripts and modules.
+
+    make docs
+
+This rebuilds the HTML, POD and plain text documentation.
+
+    make STATUS
+
+This rebuilds the STATUS document.
+
+    make index.html
+
+This rebuilds the index.html file, and the HTML format documentation.
+
+    make html
+
+This generates the HTML format documentation.
+
+    make dist
+
+This is used during development to build a new download archive and the web pages that end up on my web site.
+
+    make install
+
+This is run after a successful C<make> and installs the NetSoup package into the Perl library directory.
+
+    make Config.pm
+
+This builds a new C<Config.pm> module after running C<./configure>.
+
+    make Packages
+
+This runs the Makefile for each of the NetSoup packages, this is usually called automatically.
+
+    make test
+
+This should be run after C<make install> and performs a simple test to ensure that NetSoup has been installed, and runs correctly.
+
+    make check
+
+This target is used during development and does a C<perl -cw> on all scripts and modules in the NetSoup hierarchy, reporting any errors found.
+
+    make clean
+
+This clears out all temporary and intermediate files.
+
+    make distclean
+
+This cleans out all temporary, intermediate and configuration files.
+
+
+
+
+=head1 COPYING
+
+Copyright (C) 2000 Jason Holland
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+
+
+=head1 AUTHOR
+
+Jason Holland I<jason.holland@dial.pipex.com>

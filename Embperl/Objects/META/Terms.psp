@@ -1,0 +1,9 @@
+[!
+  use NetSoup::Autonomy::DRE::Query::t;
+  $t = NetSoup::Autonomy::DRE::Query::t->new( Hostname  => $req_rec->dir_config( "DRE_HOST" ),
+                                              Port      => $req_rec->dir_config( "DRE_QUERY_PORT" ),
+                                              Querytext => "http://www.autonomy.com" . $fdat{"c"},
+                                              XOptions  => "useurl" );
+  $keywords = join( ", ", $t->terms() );
+!]
+<meta name="keywords" content="[+ $keywords +]" />

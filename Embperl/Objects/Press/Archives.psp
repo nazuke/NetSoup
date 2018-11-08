@@ -1,0 +1,67 @@
+<!-- BEGIN Archives.psp-->
+
+<table class="bordered" cellpadding="4" cellspacing="0">
+
+  [-
+    use NetSoup::Files::Directory;
+    use NetSoup::Files::Load;
+    $Directory    = NetSoup::Files::Directory->new();
+    $archives     = $Directory->pathname( Pathname => $req_rec->lookup_uri( $fdat{'c'} )->filename() );
+    $year         = $Directory->filename( Pathname => $archives );
+    @top          = ();
+  -]
+
+  <tr><td class="header">Press Releases from [+ $year +]</td></tr>
+
+  [-
+    $Directory->descend( Pathname    => $archives,
+                         Sort        => 1,
+                         Recursive   => 0,
+                         Files       => 1,
+                         Directories => 0,
+                         Callback    => sub {
+                           my $path     = shift;
+                           my $filename = $Directory->filename( Pathname => $path );
+                           push( @top, $path ) if( $filename =~ m/^\d{4}[a-z]?\..?html(\...)?$/ );
+                           return(1);
+                         } );
+    $LIGHT  = 'lightgrey';
+    $DARK   = 'grey';
+    $colour = $LIGHT;
+    $i      = ( @top - 1 )
+  -]
+
+  [$ while( $i >= 0 ) $]
+
+    [$ if( defined $top[$i] ) $]
+
+      [-
+        $escmode = 0;
+        $Load    = NetSoup::Files::Load->new();
+        my $data = $Load->immediate( Pathname => $top[$i] );
+        ( $title )   = ( $data =~ m/<h1[^<>]*>([^<>]+)<\/h1>/gis );
+        ( $summary ) = ( $data =~ m/<p class="summary">([^\n\r]+)<\/p>/gis );
+        ( $url )     = ( $top[$i] );
+        my $docroot  = $req_rec->document_root();
+        $url         =~ s/^\Q$docroot\E//;
+        $url         =~ s/\.[a-z]+$//i;
+        if( $colour eq $LIGHT ) {
+          $colour = $DARK;
+        } else {
+          $colour = $LIGHT;
+        }
+      -]
+
+      <tr><td class="[+ $colour +]"><a href="?c=[+ $url +]">[+ $title +]</a></td></tr>
+
+      <tr><td class="[+ $colour +]">[+ $summary +]</td></tr>
+
+    [$ endif $]
+
+    [- $i--; -]
+
+  [$ endwhile $]
+
+</table>
+
+<!-- END Archives.psp -->

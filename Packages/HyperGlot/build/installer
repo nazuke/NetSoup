@@ -1,0 +1,61 @@
+#!/usr/local/bin/perl
+# This script is the NetSoup HyperGlot installer.
+# It is called by "make install".
+use NetSoup::Core;
+my $core      = NetSoup::Core->new();
+my $bin_path  = $core->getConfig( Key => "BinPath" );
+my $html_path = $core->getConfig( Key => "HyperGlotHtmlPath" );
+my $cgi_bin   = $core->getConfig( Key => "HyperGlotCGIPath" );
+my $proj_path = $core->getConfig( Key => "HyperGlotProjPath" );
+
+
+if( -e $bin_path ) {
+	line( "Installing HyperGlot scripts into: $bin_path" );
+	system( "cp ./bin/*.pl $bin_path/" );
+	system( "chown -R root:root $bin_path" );
+} else {
+	line( qq(Error: "$bin_path" does not exist!) );
+	exit(-1);
+}
+
+
+if( -e $html_path ) {
+	line( "Installing Html files into: $html_path" );
+	if( -e "$html_path/HyperGlot" ) {
+		rename( "$html_path/HyperGlot", "$html_path/HyperGlot.old" );
+	}
+	system( "cp -r ./htdocs $html_path/" );
+	rename( "$html_path/htdocs", "$html_path/HyperGlot" );
+	system( "cp -r ./docs/Logo $html_path/HyperGlot/" );
+	system( "chown -R root:root $html_path/HyperGlot" );
+} else {
+	line( qq(Error: "$html_path" does not exist!) );
+	exit(-1);
+}
+
+
+if( -e $cgi_bin ) {
+	line( "Installing CGI scripts into: $cgi_bin" );
+	if( -e "$cgi_bin/HyperGlot" ) {
+		rename( "$cgi_bin/HyperGlot", "$cgi_bin/HyperGlot.old" );
+	}
+	system( "cp -r ./cgi-bin $cgi_bin/" );
+	rename( "$cgi_bin/cgi-bin", "$cgi_bin/HyperGlot" );
+	system( "chown -R root:root $cgi_bin/HyperGlot" );
+} else {
+	line( qq(Error: "$cgi_bin" does not exist!) );
+	exit(-1);
+}
+
+
+if( -e $proj_path ) {
+	line( "Configuring Project Directory" );
+	mkdir( "$proj_path/Projects", 0755 );
+	mkdir( "$proj_path/Sites",    0755 );
+}
+
+
+exit(0);
+
+
+sub line { print( (shift) . "\n" ) }

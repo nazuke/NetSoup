@@ -1,0 +1,58 @@
+[-
+  use NetSoup::Files::Save;
+  $filename = $req_rec->lookup_uri( $fdat{c} )->filename();
+-]
+
+[$ if( ( ! -e $filename ) || ( -s $filename == 0 ) )$]
+
+  [-
+    my $Save  = NetSoup::Files::Save->new();
+    my $empty = "";
+    if( $filename !~ m/\.[^\.]+$/ ) {
+      $filename .= ".html";
+      $Save->save( Pathname => $filename, Data => \$empty );
+    }
+  -]
+
+  <p>This page has been auto-generated, click below to edit:</p>
+
+  <form method="POST" action="/PSP/Editor/Editor" target="_blank">
+    <input type="hidden" name="c" value="[+ $fdat{c} +]">
+    <input type="submit" value="edit">
+  </form>
+
+[$ else $]
+
+  <script language="JavaScript" type="text/javascript">
+    <!--
+      [- Execute ( "/home/web/Projects/Perl/NetSoup/Embperl/Classes/Filters/Jargon/Jargon.js" ) -]
+    //-->
+  </script>
+
+  <script language="JavaScript" type="text/javascript">
+    <!--
+      [- Execute ( "/home/web/Projects/Perl/NetSoup/Embperl/Classes/Filters/MaskMail/MaskMail.js" ) -]
+    //-->
+  </script>
+
+  [+
+    $escmode     = 0;
+    my $content  = "";
+    my $uri      = $fdat{c};
+    $uri        .= "index" if( $uri =~ m/\/$/ );
+    my $pathname = $req_rec->lookup_uri( $uri )->filename();
+    Execute ( { inputfile => $pathname,
+                output    => \$content  } );
+    if( $req_rec->lookup_file( $pathname )->content_type() eq "text/html" ) {
+
+      $content = NetSoup::Embperl::Classes::Filters::Hyperlink::Public->filter( $req_rec, $content );
+
+      $content = NetSoup::Embperl::Classes::Filters::Jargon::Public->filter( $req_rec, $content );
+
+      $content = NetSoup::Embperl::Classes::Filters::MaskMail::Public->filter( $req_rec, $content );
+
+    }
+    $content; # Output rendered content
+  +]
+
+[$ endif $]

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<test>
+
+
+	<tags>
+
+		Some text
+
+	/tags>
+
+
+	<tags>
+
+		Some text
+
+	</tags>
+
+
+</test>

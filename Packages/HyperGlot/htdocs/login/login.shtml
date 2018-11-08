@@ -1,0 +1,37 @@
+<html>
+  <head>
+		<title>HyperGlot: Login</title>
+		<style type="text/css">
+			<!--#include virtual="/HyperGlot/styles.css"-->
+		</style>
+  </head>
+  <body>
+		<div class="logoLogin">
+			<img src="../Logo/HyperGlot-Medium.jpg" width="160" height="120"/>
+		</div>
+		<div class="buttonsLogin">
+			<h1>Project Login</h1>
+				<form method="POST" action="/cgi-bin/HyperGlot/Login.cgi">
+					<table>
+						<tr>
+							<td>Username:</td>
+							<td align="right">
+								<input name="username" type="text"/>
+							</td>
+						</tr>
+						<tr>
+							<td>Password:</td>
+							<td align="right">
+								<input name="password" type="password" onChange="document.forms[0].submit()"/>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="4">
+								<input type="submit" value="Login"/>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+  </body>
+</html>

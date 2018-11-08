@@ -1,0 +1,106 @@
+  [! use dre; !]
+
+  <table class="Sidebar" border="0" width="180" border="0" cellpadding="4" cellspacing="0">
+    <tr class="header">
+      <td class="header" height="24">Automatic Links</td>
+      <td class="header" height="24" align="right" valign="center"><img src="/Objects/Related/Logo" alt="Powered by Autonomy"></td>
+    </tr>
+
+
+    [-
+      @dbs     = split( m/,/, $req_rec->dir_config( "OBJECT_RELATED_DATABASES" ) );
+      @dbnames = split( m/,/, $req_rec->dir_config( "OBJECT_RELATED_TITLES" ) );
+    -]
+
+
+    [$ foreach $database ( @dbs ) $]
+
+
+     [-
+      $URL    = "http://www.autonomy.com" . $fdat{"c"};
+      $DRE_IP = $req_rec->dir_config( "DRE_HOST" );
+      $colour = "lightgrey";
+      dre::autonomyInit();
+      dre::internalDreInit( 0, $DRE_IP, $req_rec->dir_config( "DRE_QUERY_PORT" ), $req_rec->dir_config( "DRE_INDEX_PORT" ) );
+      $DRE        = dre::new_t_dre();
+      $DRE_Result = dre::new_t_dreQueryResult();
+      @ret        = ();
+      $relevance  = 15;
+      dre::t_dre_create( $DRE, $DRE_IP, $req_rec->dir_config( "DRE_QUERY_PORT" ), $req_rec->dir_config( "DRE_INDEX_PORT" ) );
+     -]
+
+
+     <tr class="SidebarSubTitle"><td colspan="2" height="24" class="SidebarSubTitle">[+ shift( @dbnames ) +]</td></tr>
+
+
+     [-
+      dre::internalDreSuggest( 0,
+                               $DRE_Result,
+                               1,
+                               $URL,
+                               3,
+                               "",
+                               "",
+                               "names=$database",
+                               "",
+                               1,
+                               $relevance,
+                               0 );
+      $numhits = dre::t_dreQueryResult_nResults_get( $DRE_Result );
+     -]
+
+
+     [$ if( $numhits ) $]
+
+      [- $i = 0 -]
+
+
+
+       [$ while( $i < $numhits ) $]
+
+
+         [-
+          my $result  = dre::t_dreQueryResult_get( $DRE_Result, $i );
+          $title      = dre::t_dreQueryResultRecord_szUrlTitle_get( $result );
+          $docname    = dre::t_dreQueryResultRecord_szDocName_get( $result );
+          my $nFields = dre::t_dreQueryResultRecord_nFields_get( $result );
+          $icon       = "article";
+    			my $weight  = dre::t_dreQueryResultRecord_nDocWeight_get( $result ) . '%';
+          for( my $j = 0; $j < $nFields; $j++ ) {
+            if( dre::t_dreQueryResultRecord_getfield( $result, $j ) =~ "SmallSiteImage" ) {
+              $icon = dre::t_dreQueryResultRecord_getvalue( $result, $j );
+            }
+          }
+          my $subr   = $req_rec->lookup_uri( $docname );
+          my $target = "_self";
+          if( $subr->content_type() eq 'application/pdf' ) {
+            $target = "_blank";
+          }
+          $i++;
+          -]
+
+
+       <tr class="[+ $colour +]"><td colspan="2" height="24" class="SidebarItem">
+       <table><tr>
+       <td valign="top"><img src="[+ $icon +]" /><br />$weight</td>
+       <td><a class="Sidebar" href="[+ $docname +]" target="$target">[+ $title +]</a></td>
+       </tr></table>
+       </td></tr>
+
+
+       [$ endwhile $]
+        
+        
+     [$ else $]
+
+
+       <tr class="[+ $colour +]"><td colspan="2" height="24" class="SidebarItem" align="center">...</td></tr>
+
+
+     [$ endif $]
+
+
+     [$ endforeach $]
+    
+    
+  </table>

@@ -1,0 +1,16 @@
+#!/usr/local/bin/perl
+# This script is called by "make check" and performs a
+# syntax check each of the Perl scripts and classes.
+foreach my $pathname ( @ARGV ) {
+	my $check = system( "perl -cw $pathname 2>/dev/null" );
+	if( $check ) {
+		line( "There is a problem with: $pathname" );
+		exit(-1);
+	} else {
+		exit(0);
+	}
+}
+sub line {
+	my $message = shift;
+	print( STDERR "$message\n" );
+}

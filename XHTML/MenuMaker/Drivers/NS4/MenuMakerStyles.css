@@ -1,0 +1,86 @@
+table.MenuMaker1 {
+  position:         absolute;
+  top:              170px;
+  left:             0px;
+  font-family:      sans-serif;
+  font-size:        14pt;
+  font-weight:      bold;
+  background-color: #002287;
+  color:            #FFFFFF;
+  visibility:       show;
+  z-index:          1;
+}
+
+table.MenuMaker2 {
+  position:         absolute;
+  top:              0px;
+  left:             0px;
+  font-family:      sans-serif;
+  font-size:        14pt;
+  font-weight:      bold;
+  visibility:       hide;
+  background-color: #113388;
+  color:            #FFFFFF;
+  z-index:          2;
+}
+
+table.MenuMaker3 {
+  position:         absolute;
+  top:              0px;
+  left:             0px;
+  font-family:      sans-serif;
+  font-size:        14pt;
+  font-weight:      bold;
+  visibility:       hide;
+  background-color: #224489;
+  color:            #FFFFFF;
+  z-index:          3;
+}
+
+table.MenuMaker4 {
+  position:         absolute;
+  top:              0px;
+  left:             0px;
+  font-family:      sans-serif;
+  font-size:        14pt;
+  font-weight:      bold;
+  visibility:       hide;
+  background-color: #33558A;
+  color:            #FFFFFF;
+  z-index:          4;
+}
+
+table.MenuMaker5 {
+  position:         absolute;
+  top:              0px;
+  left:             0px;
+  font-family:      sans-serif;
+  font-size:        14pt;
+  font-weight:      bold;
+  visibility:       hide;
+  background-color: #44668B;
+  color:            #FFFFFF;
+  z-index:          5;
+}
+
+td.MenuMaker {
+  padding-top:    4px;
+  padding-bottom: 4px;
+  padding-left:   8px;
+  padding-right:  8px;
+  border-color:   #888888;
+  border-style:   solid;
+  border-width:   1px;
+}
+
+a.MenuMakerButton:link,a.MenuMakerButton:hover,a.MenuMakerButton:visited {
+  color:           #FFFFFF;
+  font-family:     sans-serif;
+  font-size:       14pt;
+  font-weight:     bold;
+  text-decoration: none;
+}
+
+a.MenuMakerButton:hover {
+  color: #FF0000;
+}

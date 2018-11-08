@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Transitional//EN">
+<html>
+  <head>
+    <title>Test Form</title>
+  </head>
+  <body>
+    <h1>Test Form</h1>
+    <p><!--MESSAGE--></p>
+    <form method="POST" action="/mod_perl/ValidateForm/Validate">
+			<p><input type="text" name="a_string" value="" /> STRING</p>
+      <p><input type="text" name="a_int"    value="" /> INT</p>
+      <p><input type="text" name="a_float"  value="" /> FLOAT</p>
+      <p><input type="text" name="a_email"  value="" /> E-MAIL</p>
+      <input type="submit" /><br />
+    </form>
+  </body>
+</html>

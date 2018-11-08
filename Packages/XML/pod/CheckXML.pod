@@ -1,0 +1,61 @@
+CheckXML User Guide
+
+
+Author: "Jason Holland" <jason.holland@dial.pipex.com>
+  Date: 06182000
+
+
+Introduction
+
+
+CheckXML is an application to check the well-formedness of an XML 1.0 compliant document, it does not validate a document against a DTD. It is a small front-end to the NetSoup XML Parser that attempts to compile a given fragment of XML format text, and checks to see if the Parser returns an error list.
+
+The document types supported are the same as those supported by the NetSoup XML Parser, including XML documents, XHTML conformant HTML documents and some XML compatible SGML documents.
+
+Documents not supported are those containing some scripting languages, such as ASP. This is because the way that the scripting language is embedded into the HTML is not XML compliant. Documents containing JavaScript are generally acceptable if the JavaScript is contained inside an XML comment.
+
+
+Usage
+
+
+The application accepts a list of pathnames for the files and directories to be processed, on UNIX and Win32 this usually needs to be carried out on the command prompt, on Macintosh drag and drop may be used. If a directory is given as an argument then the application will process the files in that directory recursively.
+
+As the application runs it will only display output for those documents containing errors. No output at all indicates that no errors were detected.
+
+If this application is to be used in a production environment following the classic edit-compile-debug cycle, then it is important to re-check a document once any errors have been found and fixed. This is because errors near the top of a document may mask errors further down.
+
+
+Error Handling
+
+
+CheckXML detects the same errors as those supported by the NetSoup XML Parser. Essentially, as the Parser executes, it builds a list of errors found. CheckXML simply collects that list. 
+
+The Parser system operates in two passes. The first pass is called the Preprocessor. The Preprocessor has the task of breaking the XML text down into a stream of Symbols. Each of these symbols may be a tag, a comment or a chunk of text. The errors that the Preprocessor detects are mostly syntax errors in nature.
+
+The errors that may occur at this stage include:
+
+	Invalid character in SGML Declaration
+
+	Missing opening double quote
+
+	Missing closing tag
+
+	Possible case-mismatch in tag name
+
+Unbalanced tags are detected by checking that every opening tag that is not declared as "empty" has a closing tag. Please note that in XML attribute values must be quoted, even in XHTML documents.
+
+The second pass is carried out by the Compiler. The Compiler takes the stream of parsed Symbols and attempts to build a Document Object Model tree. The errors that the Compiler detects are logical errors in nature.
+
+The errors that may occur at this stage include:
+
+	Unterminated element
+
+The reason why unterminated elements may appear at this stage is because of incorrect nesting of elements within the document.
+
+
+Bugs
+
+
+As the NetSoup XML Parser is non-validating, no attempt is made to validate the XML against a DTD, even if one is supplied.
+
+Presently, the Preprocessor cannot detect a missing closing quote inside tag attributes, this is because if a quote is missing it is quite difficult to determine where it is supposed to go. In most cases it seems, a missing closing quote may generate the "Possible case-mismatch in tag name" error message.

@@ -1,0 +1,167 @@
+=head1 NAME
+
+NetSoup::Core
+
+
+=head1 SYNOPSIS
+
+		package MyPackage;
+    use NetSoup::Core;
+    @MyPackage::ISA = qw( NetSoup::Core );
+
+
+=head1 DESCRIPTION
+
+This is the  NetSoup base class from which most of the other NetSoup classes inherit their basic methods. This class has little functionality of its own and should not be used directly from any user programs, mainly because I'll be modifying the implementation from time to time.
+
+
+=head1 METHODS
+
+These methods are available in almost all of the NetSoup classes that inherit from this as their base class.
+
+Gradually, new commonly used methods will be added to this class as I see fit.
+
+
+=head2 new()
+
+    my $object = NetSoup::Core->new( Key => $value );
+
+    my $clone  = $object->new( Key => $value );
+
+The C<new()> method is inherited by almost all of the NetSoup classes. It will either create a new object that belongs to the calling class, or if the method is invoked on an existing object then a clone of that object is returned.
+
+The C<initialise()> method is called on behalf of the calling class.
+
+Notes
+
+I<Object cloning is not currently implemented.>
+
+
+=head2 initialise()
+
+    $object->initialise( Key => $value );
+
+This method is implicitly called on behalf of the calling class. At present the C<initialise()> method present in this class is simply a stub. It is intended that the calling class override this method if it needs to do some object initialisation.
+
+The calling class B<does not> need to call its own C<initialise> method at object creation time, unless it has also overridden the default C<new()> method as well.
+
+
+=head2 debug()
+
+    $object->debug( "message", [ $level ] );
+
+The C<debug()> method is used during class development and provides a NetSoup consistent debugging output format.
+
+The first argument is a scalar string, the second argument is a small integer describing the debug level of the message. If the class's debug level is smaller than the given level then the message is not displayed.
+
+The output format is:
+
+    C<PACKAGE\tPID\tMESSAGE>
+
+with each message going to STDERR.
+
+Notes
+
+I<Debugging levels are not properly implemented yet.>
+
+
+=head2 debugLevel()
+
+    my $level = $object->debugLevel( [ $level ] );
+
+This method optionally sets or reads the class debugging level, depending on whether and integer value is supplied or not. Please note that the debugging level is class specific, different classes have different debugging levels.
+
+
+=head2 startLog()
+
+    my $level = $object->startLog();
+
+This method starts the program debug log file recording. This method starts logging on a per-class basis, classes may be logged on an individual basis, with all debug messages going into a single log file.
+
+Notes
+
+A single log is recorded for the host application, with the file being stored in the same directory as the program file if no pathname is supplied to the C<logPathname()> method.
+
+
+=head2 startLogGlobal()
+
+    my $level = $object->startLogGlobal();
+
+This method starts the program debug log file recording. This method starts logging on a NetSoup global basis, every debug message generated will be recorded into the log file.
+
+Notes
+
+A single log is recorded for the host application, with the file being stored in the same directory as the program file if no pathname is supplied to the C<logPathname()> method.
+
+
+=head2 stopLog()
+
+    my $level = $object->stopLog();
+
+This method halts the per-class log file recording.
+
+
+=head2 stopLogGlobal()
+
+    my $level = $object->stopLogGlobal();
+
+This method halts the NetSoup global log file recording.
+
+
+=head2 flushLog()
+
+    $object->flushLog();
+
+This method flushes the log file contents. The log file is not deleted, to delete the log file as well use the C<removeLog()> method.
+
+
+=head2 logPathname()
+
+    $object->logPathname( [ $pathname ] );
+
+This method gets and optionally sets the log file pathname. This method should be called before any log file recording takes place. The default location for the log file is the same directory as the script file.
+
+
+=head2 removeLog()
+
+    $object->removeLog();
+
+This method deletes the log file from the filesystem. Please note that it is more secure to us the C<flushLog()> method if further debug messages will be generated before the script exits.
+
+
+=head2 dumpArgs()
+
+    $object->startLogGlobal( \%hash );
+
+The C<dumpArgs()> method can be used to dump out the contents of a hash. It is commonly used during NetSoup development to examine the contents of method arguments.
+
+
+=head2 dumper()
+
+    $object->startLogGlobal( Ref => [ \$scalar | \@array | \%hash| $object ] );
+
+This method is used during NetSoup development, it is used to dump out the contents of a reference into a visual ASCII format.
+
+All output is sent to the STDERR file handle.
+
+Notes
+
+Byte values outside of the printable ASCII range are not currently handled, neither are code references, handles etc.
+
+Also investigate the Standard Perl C<dumpvar.pl> library for other ways of doing this kind of thing.
+
+
+=head1 COPYING
+
+Copyright (C) 2000 Jason Holland
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+
+
+=head1 AUTHOR
+
+Jason Holland I<jason.holland@dial.pipex.com>

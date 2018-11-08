@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+  <head>
+    <title>Port Ping</title>
+  </head>
+  <body>
+    <h1>Port Ping</h1>
+    <script language="PerlXML">
+      <![CDATA[
+
+				use NetSoup::Protocol;
+				my $Port     = 80;
+				my $Protocol = NetSoup::Protocol->new( Address => "localhost", Port => $Port );
+				if( $Protocol->client() ) {
+					$Document->out( qq(<p>Port Pinged $Port</p>) );
+				} else {
+					$Document->out( qq(<p>Could not Port Ping $Port</p>) );
+				}
+
+      ]]>
+    </script>
+  </body>
+</html>

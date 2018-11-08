@@ -1,0 +1,22 @@
+CONFIG_CACHE=../../config.cache
+USERNAME=__USERNAME__
+
+# "make all" configures the GlotD server files.
+all:
+	@sync
+
+# "make clean" cleans out the intermediate files.
+clean:
+	rm Makefile
+
+# "make install" installs the GlotD package.
+
+install:
+	@echo "Installing the glotd binary"
+	perl ./build/installer ${USERNAME}
+
+#############################################################################
+#    Development Targets                                                    #
+#############################################################################
+
+

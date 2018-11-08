@@ -1,0 +1,13 @@
+#!/usr/local/bin/perl -w
+
+use strict;
+use NetSoup::Oyster::Executor;
+
+if( open( FILE, shift ) ) {
+	my $XML      = join( "", <FILE> );
+	my $Executor = NetSoup::Oyster::Executor->new();
+	my $Document = $Executor->execute( XML => \$XML );
+	my $HTML     = $Document->result();
+	print( $HTML );
+}
+exit(0);

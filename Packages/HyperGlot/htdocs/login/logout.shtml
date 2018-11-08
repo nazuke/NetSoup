@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<title>HyperGlot: Logged Out</title>
+		<style type="text/css">
+			<!--#include virtual="/HyperGlot/styles.css"-->
+		</style>
+	</head>
+	<body>
+		<div class="logoLogin">
+			<img src="../../docs/Logo/HyperGlot-Medium.jpg" width="160" height="120"/>
+		</div>
+		<div class="buttonsLogin">
+			<h1>You have logged out of HyperGlot</h1>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,9 @@
+#!/usr/local/bin/perl -w
+
+package NetSoup::Apache::Hyperlink::KillList;
+use strict;
+%NetSoup::Apache::Hyperlink::KillList::DICT = ();
+%NetSoup::Apache::Hyperlink::KillList::KILL = map { $_ => 1 } <NetSoup::Apache::Hyperlink::KillList::DATA>;
+1;
+
+__DATA__

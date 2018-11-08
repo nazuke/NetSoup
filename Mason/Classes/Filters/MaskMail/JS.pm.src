@@ -1,0 +1,16 @@
+#!/usr/local/bin/perl -w
+
+package NetSoup::Mason::Classes::Filters::MaskMail::JS;
+use strict;
+@NetSoup::Mason::Classes::Filters::MaskMail::JS::ISA = qw();
+my $JavaScript = join( "", <NetSoup::Mason::Classes::Filters::MaskMail::JS::DATA> );
+1;
+
+
+sub js {
+  my $JS = shift;
+  return( $JavaScript );
+}
+
+
+__DATA__

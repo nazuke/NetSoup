@@ -1,0 +1,5 @@
+[-
+  $ENV{PSP_CUSTOMER_ICON}    = "04 icon";
+  $ENV{PSP_CUSTOMER_URL}     = "04 url";
+  $ENV{PSP_CUSTOMER_CONTENT} = "04 content";
+-]

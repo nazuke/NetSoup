@@ -1,0 +1,107 @@
+<HTML>
+<HEAD>
+<TITLE>Scripts/Tools/XHTML/RipStuff/pod/ripHtml</TITLE>
+<LINK REV="made" HREF="mailto:jason.holland@dial.pipex.com">
+</HEAD>
+
+<BODY>
+
+<A NAME="__index__"></A>
+<!-- INDEX BEGIN -->
+
+<UL>
+
+	<LI><A HREF="#name">
+<FONT SIZE=-1>NAME</FONT></A></LI>
+	<LI><A HREF="#synopsis">
+<FONT SIZE=-1>SYNOPSIS</FONT></A></LI>
+	<LI><A HREF="#description">
+<FONT SIZE=-1>DESCRIPTION</FONT></A></LI>
+	<LI><A HREF="#usage">
+<FONT SIZE=-1>USAGE</FONT></A></LI>
+	<LI><A HREF="#copying">
+<FONT SIZE=-1>COPYING</FONT></A></LI>
+	<LI><A HREF="#author">
+<FONT SIZE=-1>AUTHOR</FONT></A></LI>
+</UL>
+<!-- INDEX END -->
+
+<HR>
+<P>
+<H1><A NAME="name">
+<FONT SIZE=-1>NAME</FONT></A></H1>
+<P>RipHtml</P>
+<P>
+<A HREF="#__index__"><SMALL>page index</SMALL></A>
+<HR>
+<H1><A NAME="synopsis">
+<FONT SIZE=-1>SYNOPSIS</FONT></A></H1>
+<PRE>
+    ripHtml.pl pathname [ pathname ... ]</PRE>
+<P>Html file format text extraction and reintegration script. The output from this script is intended for use by a software localisation translator.</P>
+<P>
+<A HREF="#__index__"><SMALL>page index</SMALL></A>
+<HR>
+<H1><A NAME="description">
+<FONT SIZE=-1>DESCRIPTION</FONT></A></H1>
+<P>Currently the script only looks for free text in the Html text and 
+<FONT SIZE=-1>ALT</FONT> properties of the 
+<FONT SIZE=-1>&lt;A&gt;</FONT> tags therein. Support for strings within embedded scripts is under development, but as these are highly context dependant and require a human reader to infere meaning from them. 
+<FONT SIZE=-1>A</FONT> suitable class libaray is being developed to narrow down selections to sensible strings.</P>
+<P>During the extraction process the program scans each file, tokenises the necessary text and saves the token/string pairs into a tab-delimited text file. This text file is passed to the translator for editing. As the file is essentially a table, the translator can open it in Microsoft Word, and choose ``Convert Text to Table'' from the ``Table'' menu.</P>
+<P>The first column in the table contains tokens, these are for internal use only and should be ignored; they <STRONG>must not</STRONG> be modified.</P>
+<P>The text extracted should not contain any Html tags, however it may contain Html Entity Tags. These tags are used to represent special characters that are not in the low-ascii character set, or are reserved in regular Html. To decode these entity tags, please use a suitable reference. You can find a reference table in <EM>Html: The Definitive Guide</EM>, from <EM>O'Reilly and Associates</EM>.</P>
+<P>Occasionally some material may get extracted that should not be edited; please ignore this, or better still send me a bug report. The main reason why this happens is that web site development is progressing at an exceptional rate; with new languages and tools appearing constantly. This means that a complex web page may contain lots of different kinds of code and server directives. Whenever something radically new comes along, 
+<FONT SIZE=-1>I</FONT> may need to modify the program to take it into account.</P>
+<P>
+<A HREF="#__index__"><SMALL>page index</SMALL></A>
+<HR>
+<H1><A NAME="usage">
+<FONT SIZE=-1>USAGE</FONT></A></H1>
+<P>Run the script, giving directory pathnames as arguments. More than one directory may be processed in a session.</P>
+<P>Each directory is processed in turn. 
+<FONT SIZE=-1>A</FONT> new directory is created, the <EM>Mirror</EM>, with the same name as the original; the mirror has a tilde appended.</P>
+<P>The original directory now contains ripped files, with each string replaced with a special token value. The mirror contains the tab-delimited text files.</P>
+<P>Edit the files in the mirror directory and re-run the script; using the original arguments. The contents of the tab-delimited text files are merged into the ripped files. As each mirror directory is processed, its trailing tilde is changed to an exclamation mark, flagging the directory as processed.</P>
+<P>The files in the original directory should now contain the new text strings.</P>
+<P>
+<A HREF="#__index__"><SMALL>page index</SMALL></A>
+<HR>
+<H1><A NAME="copying">
+<FONT SIZE=-1>COPYING</FONT></A></H1>
+<P>Copyright 
+<FONT SIZE=-1>(C)</FONT> 2000 Jason Holland</P>
+<P>This program is free software; you can redistribute it and/or modify it under the terms of the 
+<FONT SIZE=-1>GNU</FONT> General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</P>
+<P>This program is distributed in the hope that it will be useful, but 
+<FONT SIZE=-1>WITHOUT</FONT> 
+<FONT SIZE=-1>ANY</FONT> 
+<FONT SIZE=-1>WARRANTY;</FONT> without even the implied warranty of 
+<FONT SIZE=-1>MERCHANTABILITY</FONT> or 
+<FONT SIZE=-1>FITNESS</FONT> 
+<FONT SIZE=-1>FOR</FONT> 
+<FONT SIZE=-1>A</FONT> 
+<FONT SIZE=-1>PARTICULAR</FONT> 
+<FONT SIZE=-1>PURPOSE.</FONT> See the 
+<FONT SIZE=-1>GNU</FONT> General Public License for more details.</P>
+<P>You should have received a copy of the 
+<FONT SIZE=-1>GNU</FONT> General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, 
+<FONT SIZE=-1>MA</FONT> 02111-1307 
+<FONT SIZE=-1>USA</FONT></P>
+<P>
+<A HREF="#__index__"><SMALL>page index</SMALL></A>
+<HR>
+<H1><A NAME="author">
+<FONT SIZE=-1>AUTHOR</FONT></A></H1>
+<P>Jason Holland <EM><A HREF="mailto:jason.holland@dial.pipex.com">jason.holland@dial.pipex.com</A></EM></P>
+<P><A HREF="#__index__"><SMALL>page index</SMALL></A></P>
+
+</BODY>
+
+</HTML>
+x.com</A></EM></P>
+<P><A HREF="#__index__"><SMALL>page index</SMALL></A></P>
+
+</BODY>
+
+</HTML>

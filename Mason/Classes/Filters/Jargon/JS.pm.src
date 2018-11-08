@@ -1,0 +1,16 @@
+#!/usr/local/bin/perl -w
+
+package NetSoup::Mason::Classes::Filters::Jargon::JS;
+use strict;
+@NetSoup::Mason::Classes::Filters::Jargon::JS::ISA = qw();
+my $JavaScript = join( "", <NetSoup::Mason::Classes::Filters::Jargon::JS::DATA> );
+1;
+
+
+sub js {
+  my $JS = shift;
+  return( $JavaScript );
+}
+
+
+__DATA__

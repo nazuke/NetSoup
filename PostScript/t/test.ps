@@ -1,0 +1,92 @@
+/inch 72 def
+
+
+/box {
+  newpath
+  /height def
+  /width def
+  moveto
+  width 0 rlineto
+  0 height rlineto
+  0 width sub 0 rlineto
+  0 0 height sub rlineto
+  stroke
+} def
+
+/xpos 10 def
+/ypos 10 def
+/width 300 def
+/height 100 def
+xpos ypos width height box
+
+
+/grid {
+  /height def
+  /width def
+  /ypos def
+  /xpos def
+  /step 10 def
+  0 10 width {
+    newpath
+    xpos ypos moveto
+    step ypos moveto
+    step ypos height add lineto
+    stroke
+    /step step 10 add def
+  } for
+
+  /step 10 def
+  0 10 height {
+    newpath
+    xpos ypos moveto
+    xpos ypos height add moveto
+    xpos ypos lineto
+    stroke
+    
+
+    
+    stroke
+    /step step 10 add def
+  } for
+
+
+
+
+
+
+} def
+
+/xpos 10 def
+/ypos 10 def
+xpos ypos 10 10 grid
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/plotline {
+  newpath
+  moveto
+  1 1 3 { pop lineto } for
+  stroke
+} def
+
+/point1x 44 def
+/point1y 25 def
+/point2x 57 def
+/point2y 54 def
+/point3x 89 def
+/point3y 78 def
+point3x point3y point2x point2y point1x point1y 10 10 plotline
+
+
+showpage

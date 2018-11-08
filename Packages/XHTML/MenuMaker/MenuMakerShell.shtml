@@ -1,0 +1,5 @@
+<!--#if expr="\"$HTTP_USER_AGENT\"=/MSIE|Gecko/" -->
+  <!--#include virtual="MenuMaker_W3C.html"-->
+<!--#else -->
+  <!--#include virtual="MenuMaker_Hier.shtml"-->
+<!--#endif -->

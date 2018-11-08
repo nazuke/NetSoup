@@ -1,0 +1,150 @@
+<html>
+    <head>
+        <title>W3Probe</title>
+        <style type="text/css">
+            body {
+                background: !!52441611799::0000000062!!ange;
+            }
+            h1, h2, h3, h4, h5, h6, h7 {
+                font-family: Helvetica, Lucida, Arial, sans-serif;
+                col!!52441611799::0000000064!!:       white;
+            }
+            p {
+                font-family: Helvetica, Lucida, Arial, sans-serif;
+                font-size:   12pt;
+                font-style:  bold;
+                line-height: 16pt;
+                col!!52441611799::0000000066!!:       white;
+            }
+            tr.dark {
+                background: dark!!52441611799::0000000068!!ange;
+            }
+            span.white {
+                font-family: Helvetica, Lucida, Arial, sans-serif;
+                font-style:  bold;
+                col!!52441611799::0000000070!!:       white;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+                <table b!!52441611799::0000000071!!der="0" width="99%" cellpadding="0" cellspacing="0">
+                    <tr class="dark">
+                        <td width="2%">&nbsp;</td>
+                        <td width="48%" align="left" valign="center">
+                            <h1>W3Probe</h1>
+                        </td>
+                        <td width="50%" align="right" valign="center">
+                            <f!!52441611799::0000000072!!m method="POST" action="!!ADDRESS!!">
+                                <input type="submit" value="W3Probe !!52441611799::0000000088!!!!52441611799::0000000127!!m">
+                            </f!!52441611799::0000000133!!m>
+                        </td>
+                    </tr>
+                </table>
+        </center>
+        <!-- Default Settings Notes -->
+        <h4>Default Settings</h4>
+        <p>The default f!!52441611799::0000000137!!m settings should be sufficient f!!52441611799::0000000143!! most web site analyses, in most cases you will simply have to enter the correct address !!52441611799::0000000003!! submit the form. The e-mail address entered last time will always be restored the next time the form is requested.</p>
+        <p>Please note that analyses have a much better chance of completing properly if the report can be sent to an e-mail account. Some browsers have difficulty waiting a long time to receive a document, often timing out after several minutes. Getting the report via e-mail will almost always work properly. However, analysing a very small web site will be quicker if the report is returned directly to the browser window.</p>
+        <!-- Location -->
+        <hr width="98%">
+        <h4>Location</h4>
+        <h4>HTTP Address</h4>
+        <p>Enter a web site address in the <strong>HTTP Address</strong> !!52441611799::0000000125!! <em>http://hostname/pathname.</em> !!52441611799::0000000126!! <strong>must</strong> include the name of at least the root document in the pathname, alternatively you may include a full pathname to a specific directory !!52441611799::0000000008!! file.</p>
+        <p>If you are unsure of the filename of the root document, first go to the web site in question and find out. It will often be named something like <em>index.html</em> or <em>index.htm</em>. However there may be a large differentiation in naming schemes, especially on non-UNIX based hosts.</p>
+        <!-- Server Options -->
+        <hr width="98%">
+        <h4>Server Options</h4>
+        <p>These options determine the application's behaviour when communicating with the remote server.</p>
+        <h4>Stay On Same Server</h4>
+        <p>It is recommended that this option be left switched on, otherwise the application may very well attempt to analyse the entire Internet. This option should only be switched off if you are sure that the web site does not link to other web servers.</p>
+        <h4>Follow CGI Links</h4>
+        <p>Some pages are generated automatically by server-side CGI scripts. This option should be enabled if dynamic pages are to be included in the analysis. Incidentally, disabling this option will not affect the result of <strong>Identify CGI/Database Links</strong> below.</p>
+        <!-- Link Options -->
+        <hr width="98%">
+        <h4>Link Options</h4>
+        <p>These options determine how the application follows links.</p>
+        <h4>Follow Links</h4>
+        <p>Enabling this option will cause the application to follow links on all pages. All links to Html pages will be followed, links to other file formats will generally be ignored.</p>
+        <h4>To A Depth Of</h4>
+        <p>A numeric value should be entered into this field. This value determines the number of consecutive links that are followed in a direct path from the parent page, it <strong>does not</strong> dictate the total number of pages that should be analysed. You may leave this field blank, in which case the application will use a default of infinity.</p>
+        <!-- Analysis Options -->
+        <hr width="98%">
+        <h4>Analysis Options</h4>
+        <p>These options form the core of the application, they determine the exact analysis performed on the web site in question.</p>
+        <h4>Count Words</h4>
+        <p>Enabling this option will cause a word count to be carried out on each page. The word count includes only translatable text, it does not currently include text resources inside tags, nor does it include text in linked media such as graphics or word processor files.</p>
+        <h4>Identify Languages</h4>
+        <p>With this option enabled, the application will perform a best-guess analysis of each page's text in an attempt to determine which language it has been written in.</p>
+        <h4>Include Languages</h4>
+        <p>Choose the languages to be included in the final report, you may select multiple languages to be included. It should be noted that this does not accelerate the analysis process as each page still needs to be downloaded before it can be analysed, it simply    filters out unwanted languages from the report.</p>
+        <p>Checking the Include Indeterminate Languages checkbox will cause documents whose language could not be determined to be included in the report.</p>
+        <h4>Count JPEG Images</h4>
+        <p>Enabling this option will cause the application to count the number of JPEG images used on each page. Please note that several pages may actually use the same image. It is not currently possible to test for image duplication, however this may be implemented in the future.</p>
+        <h4>Count GIF Images</h4>
+        <p>Enabling this option will cause the application to count the number of GIF images used on each page. Please note that several pages may actually use the same image. It is not currently possible to test for image duplication, however this may be implemented in the future.</p>
+        <h4>Identify Linked Media</h4>
+        <p>Enabling this option will cause the application to attempt to determine the number of linked media files in each document that are not either regular Html files, GIF or JPEG images, or CGI links. Examples of linked media include any files such as Microsoft Word documents, sound files or unknown graphics formats.</p>
+        <p>Of course, it is beyond the scope of this application to attempt to analyse unknown media types. They will need to be analysed through other means once they have been identified.</p>
+        <h4>Identify Scripts</h4>
+        <p>With this option enabled the application will attempt to locate any scripting languages used in each Html document. Currently the only two languages expected to be found are either JavaScript or VBScript and possibly Tcl/Tk. Additional scripting languages may appear in the future.</p>
+        <h4>Identify Applets</h4>
+        <p>Enabling this option will cause the application to count the number of Applets used by the page. Applets are mainly written in the Java programming language, however there may be rare cases where some other programming language has been used so this should not automatically be assumed.</p>
+        <h4>Identify Plug-Ins</h4>
+        <p>Enabling this option will cause the application to count the number of Plug-In tags used by the page. Plug-Ins can include a large number of media types, several hundred, so it is not practical at the moment to attempt to analyse them all.</p>
+        <h4>Identify CGI/Database Links</h4>
+        <p>With this option enabled the application will count the number of CGI and Database Query links made by the page. Counting these links will give an indication of the dependency of the web site on CGI scripts and external database applications.</p>
+        <h4>Find E-Mail Addresses</h4>
+        <p>Enabling this option causes the application to attempt to search for and extract any e-mail addresses in each document.</p>
+        <!-- Report Options -->
+        <hr width="98%">
+        <h4>Report Options</h4>
+        <p>There are now two report formats to choose from, you must pick at least one or you will receive nothing at all. More than one report can be returned via e-mail, they will arrive as multiple attachments.</p>
+        <h4>Text Report</h4>
+        <p>This report format is a tab delimited text block, suitable for loading into a word processor or spreadsheet.</p>
+        <h4>Html Report</h4>
+        <p>This report format is a regular Html file, suitable for human reading. The header contains a summary of all data gathered, along with a block for each document found.</p>
+        <!-- Mailing Options -->
+        <hr width="98%">
+        <h4>Mailing Options</h4>
+        <p>The mailing options determine if the report is to be e-mailed to a recipient or not. When the application looks for an e-mail address entered by the user it first looks in the text field and uses that, if the text field is empty it will then examine the menu and use the address selected there. If both text field and menu are empty then the application will send the report to the user's browser instead.</p>
+        <p>The server will attempt to set a cookie when the form is submitted. This cookie is used to restore the e-mail address that the user entered when they return to the form again. Obviously in order for this mechanism to work the browser must be cookie-aware and have cookies switched on.</p>
+        <h4>E-Mail Report File</h4>
+        <p>Enabling this option will cause the application to send the report via e-mail to the specified user, instead of sending it to their web browser. This option is preferable if the web site being analysed is quite large, it also has the advantage that the web browser is released for further work. The application will continue to execute on the web server without further user intervention.</p>
+        <h4>E-Mail Address</h4>
+        <p>The user should enter their e-mail address into this field if they are using the form for the first time, if they have used this form before then they should be able to pick their address from the menu below instead. Even better, if a cookie has been set, the address field should already be filled in.</p>
+        <p>Please enter the address carefully as no error checking is performed at present.</p>
+        <h4>Or Choose Address</h4>
+        <p>This menu will only appear once someone has already used the form and entered an e-mail address, the information is written into a file on the server for later re-use. The user may pick their e-mail address from this menu instead of entering it into the text field each time.</p>
+        <!-- Other Options -->
+        <hr width="98%">
+        <h4>Other Options</h4>
+        <p>The following options specify miscellaneous settings that control the behaviour of data returned.</p>
+        <h4>Use Disk Storage</h4>
+        <p>Enabling this option makes the program store document data on disk instead of in memory. This may be necessary when analysing very large web sites, but it also has a serious detrimental effect on performance. This option is <strong>not recommended</strong> unless absolutely necessary.</p>
+        <!-- Starting The Analysis -->
+        <hr width="98%">
+        <h4>Starting The Analysis</h4>
+        <p>Clicking the <strong>Reset Form</strong> button will clear any details that you have entered and return the form to its default settings.</p>
+        <p>Once you have entered all of the necessary details, click the <strong>Begin Analysis</strong> !!52441611799::0000000134!! <strong>A VERY LONG TIME</strong>.</p>
+        <!-- Credits -->
+        <hr width="98%">
+        <center>
+            <table border="0" width="99%" cellpadding="4" cellspacing="0">
+                <tr>
+                    <td align="right" valign="top">
+                        <span class="white">W3Grab is Copyright (C) 2000 <a href="mailto:jason.holland@dial.pipex.com" subject="W3Grab">Jason&nbsp;Holland</a>.</span><br>
+                        <span class="white">W3Grab is distributed under the terms of the GNU General Public Licence.</span><br>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </body>
+</html>
+l Public Licence.</span><br>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </body>
+</html>

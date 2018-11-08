@@ -1,0 +1,27 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <form method="POST" action="http://www.autonomy.com/cgi-bin/mailhtml.cgi">
+      <input type="hidden" name="RECIPIENT"  value="jasonh@autonomy.com">
+      <input type="hidden" name="CC"         value="jasonh@autonomy.com">
+      <input type="hidden" name="FROM"       value="maildroid@autonomy.com">
+      <input type="hidden" name="SUBJECT"    value="Testing mailhtml">
+      <input type="hidden" name="DOCTYPE"    value="form">
+      <input type="hidden" name="ACTION"     value="http://localhost/cgi-bin/some.cgi">
+      <input type="hidden" name="SORTORDER"  value="one,two,three,menu,checkbox,radio">
+      <input type="hidden" name="SUCCESSURL" value="http://localhost/">
+      <input type="hidden" name="ERRORURL"   value="http://localhost/">
+      <input type="text"   name="one" value="this is field one"><br>
+      <input type="text"   name="two" value="this is field two"><br>
+      <input type="text"   name="three" value="this is field three"><br>
+      <input type="hidden" name="menu" value="<SELECT>one|two|three">
+      <input type="hidden" name="checkbox" value="<CHECKBOX>one|two|three">
+      <input type="hidden" name="radio" value="<RADIO>one|two|three">
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
+m>
+  </body>
+</html>

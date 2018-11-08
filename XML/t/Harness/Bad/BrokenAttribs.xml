@@ -1,0 +1,6 @@
+<doc>
+	<test:t ag attrib="''''"/>
+	<text attrib="Hello" attr>
+		Some text
+	</text>
+</doc>

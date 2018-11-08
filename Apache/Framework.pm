@@ -1,0 +1,61 @@
+#!/usr/local/bin/perl -w
+
+package NetSoup::Apache::Framework;
+use strict;
+use Apache;
+use Apache::Constants qw( :http :response );
+use DBI;
+use NetSoup::Apache;
+use NetSoup::Util::Time;
+@NetSoup::Apache::Framework::ISA     = qw( NetSoup::Apache NetSoup::Util::Time );
+%NetSoup::Apache::Framework::GLOBALS = ( EXIT_FLAG => 0 );
+1;
+
+
+sub child_init_handler {
+  my $r = shift;
+  if( $r->dir_config( "MYSQL_HOST" ) ) {
+    if( ! exists $NetSoup::Apache::Framework::GLOBALS{DBH} ) {
+      $NetSoup::Apache::Framework::GLOBALS{DBH} = DBI->connect( "DBI:mysql:database=;host=" .
+                                                                $r->dir_config( "MYSQL_HOST" ),
+                                                                $r->dir_config( "MYSQL_USER" ),
+                                                                $r->dir_config( "MYSQL_PASS" ) );
+    }
+  }
+  if( exists $NetSoup::Apache::Framework::GLOBALS{DBH} ) {
+    $r->warn( "$$ Database Connection Successful" );
+  } else {
+    $r->warn( "$$ Database Connection Failed" );
+    return( SERVER_ERROR );
+  }
+  return( OK );
+}
+
+
+sub child_exit_handler {
+  my $r = shift;
+  if( ! $NetSoup::Apache::Framework::GLOBALS{EXIT_FLAG} ) {
+    $NetSoup::Apache::Framework::GLOBALS{EXIT_FLAG} = 1;
+    if( $r->dir_config( "MYSQL_HOST" ) && $NetSoup::Apache::Framework::GLOBALS{DBH} ) {
+      if( $NetSoup::Apache::Framework::GLOBALS{DBH}->disconnect() ) {
+        $r->warn( "$$ Database Disconnection Successful" );
+      } else {
+        $r->warn( "$$ Database Disconnection Failed" );
+        return( SERVER_ERROR );
+      }
+    }
+  }
+  return( OK );
+}
+
+
+sub dbh {
+  # Return open MySQL database handle.
+  my $Framework = shift;
+  my $r         = shift;
+  if( ! defined $NetSoup::Apache::Framework::GLOBALS{DBH} ) {
+    $r->warn( "$$ Framework: Lost MySQL Handle" );
+    child_init_handler( $r );
+  }
+  return( $NetSoup::Apache::Framework::GLOBALS{DBH} );
+}

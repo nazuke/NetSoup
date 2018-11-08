@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+
+<!DOCTYPE editor SYSTEM "editor.dtd">
+
+<editor>
+	<script language="JavaScript">
+        <![CDATA[
+            alert( "Hello World!" );
+        ]]>
+    </script>
+    <fields/>
+</editor>

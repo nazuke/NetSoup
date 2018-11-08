@@ -1,0 +1,10 @@
+<!ELEMENT validate (field)>
+<!ELEMENT field    (general,invalid,short,long,allowed)>
+<!ELEMENT general  (#PCDATA)>
+<!ELEMENT invalid  (#PCDATA)>
+<!ELEMENT short    (#PCDATA)>
+<!ELEMENT long     (#PCDATA)>
+<!ELEMENT min      (#PCDATA)>
+<!ELEMENT max      (#PCDATA)>
+<!ELEMENT allowed  (item+)>
+<!ELEMENT item     (#PCDATA)>

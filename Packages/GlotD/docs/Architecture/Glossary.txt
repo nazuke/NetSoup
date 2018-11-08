@@ -1,0 +1,18 @@
+NetSoup Glossary Architecture
+
+
+Introduction
+
+The NetSoup Glossary concept sprang into being when I was developing a several tools in my NetSoup suite. Chief amongst these was GlotD and HyperGlot packages.
+
+I had already written an earlier, cruder, Html extraction script to prepare Html material for translation into a different written language. I had a number of ideas which could be incorporated into new versions of this process, one of them was a backend language translation mechanism.
+
+
+Outline
+
+The NetSoup glossary mechanism is composed of a number of classes. The most fundamental classes deal with manipulating string data in a NetSoup Store format database, above these are network protocol classes for performing glossary queries across the network for both clients and servers.
+
+At the moment the glossary fetch/store mechanism deals with arbitrary string data only. There is no real logic for breaking those strings down into atomic structures. For instance, if passed a sentence, the glossary management class checks to see if a translation exists for that absolute string, or not. No checking for sub-strings is performed as yet. Any string analysis must currently be performed by the calling application.
+
+It is advised that in a client/server environment it should be the client application that performs any necessary string analysis.
+tring analysis.

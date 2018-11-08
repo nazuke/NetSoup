@@ -1,0 +1,59 @@
+=head1 NAME
+
+NetSoup::Persistent::Store
+
+
+=head1 SYNOPSIS
+
+    use NetSoup::Persistent::Store;
+    tie %hash, NetSoup::Persistent::Store, Pathname => $pathname;
+
+
+=head1 DESCRIPTION
+
+The Store class is a simple disk based persistent hash, with support for deep data structures and some locking features.
+
+Currently only data structures containing hashes, hash references, scalars and scalar references are supported. Array and array reference support may be added later, but for now you can pretty much do anything with a hash that you can do with an array.
+
+This class also requires a working DB_File.pm modules amongst the standard Perl libraries.
+
+
+=head1 USAGE
+
+Please note that this class generates quite a few files during operation. The pathname specified must point to a directory. If the directory does not exist then it will be created. All of the files generated are stored under this directory.
+
+If the store is completely emptied then this directory will disappear. Similarly, to conserve disk space each file is removed inside the store as its corresponding value is erased in memory.
+
+Each branch is locked as it is accessed. This means that it is possible for several processes to simultaneously access the persistent store concurrently.
+
+
+=head2 Example
+
+To use a stored hash with this class, do something like this:
+
+    my %db       = ();
+    my $pathname = "/tmp/database"
+    tie %db, NetSoup::Persistent::Store, Pathname => $pathname;
+    $db{One}   = "Number One";
+    $db{Two}   = "Number Two";
+    $db{Three} = { 1 => "One",
+                   2 => "Two" };
+    delete $db{One};
+
+Each element added will stored on disk, and each element removed will be erased from disk.
+
+
+=head1 COPYING
+
+Copyright (C) 2000 Jason Holland
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+
+
+=head1 AUTHOR
+
+Jason Holland I<jason.holland@dial.pipex.com>

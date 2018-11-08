@@ -1,0 +1,84 @@
+<!-- BEGIN Latest.psp-->
+
+<table class="PSP">
+
+  <tr class="header">
+    <td class="header" height="24">Latest Press</td>
+  </tr>
+
+  [-
+    use NetSoup::Files::Directory;
+    use NetSoup::Files::Load;
+    use NetSoup::Maths::Suffix;
+    $Directory = NetSoup::Files::Directory->new();
+    $Load      = NetSoup::Files::Load->new();
+    $Suffix    = NetSoup::Maths::Suffix->new();
+    @years     = ();
+    @months    = qw( NULL Jan Feb Mar Apr May Jun July Aug Sep Oct Nov Dec );
+    @top       = ();
+    @topdates  = ();
+    $max       = $req_rec->dir_config( "PSP_PRESS_LATEST_MAX" );
+    $Directory->descend( Pathname    => $req_rec->lookup_uri( $req_rec->dir_config( "PSP_PRESS_ARCHIVES" ) )->filename(),
+                         Sort        => 1,
+                         Recursive   => 0,
+                         Files       => 0,
+                         Directories => 1,
+                         Callback    => sub {
+                           my $pathname = shift;
+                           my $filename = $Directory->filename( Pathname => $pathname );
+                           push( @years, $filename ) if( $filename =~ m/^\d{4}$/ );
+                         } );
+    for( my $i = ( @years - 1 ) ; $i >= 0 ; $i-- ) {
+      $Directory->descend( Pathname    => $req_rec->lookup_uri( $req_rec->dir_config( "PSP_PRESS_ARCHIVES" ) )->filename() . "/$years[$i]",
+                          Sort        => 1,
+                          Recursive   => 0,
+                          Files       => 1,
+                          Directories => 0,
+                          Callback    => sub {
+                            my $pathname = shift;
+                            my $filename = $Directory->filename( Pathname => $pathname );
+                            if( $filename =~ m/^\d{4}[a-z]?\..?html(\...)?$/i ) {
+                              push( @top, $pathname );
+                              my ( $month, $day ) = ( $filename =~ m/^(\d{2})(\d{2})[a-z]?\..?html(\...)?$/i );
+                              my $date = $Suffix->append( int( $day ) ) . " " . $months[int($month)];
+                              push( @topdates, $date );
+                            }
+                          } );
+    }
+    $max = ( @top - 1 ) if( ( @top - 1 ) < $max );
+    $i   = $max;
+  -]
+
+  [$ while( $i >= 0 ) $]
+
+    [$ if( defined $top[$i] ) $]
+
+      [-
+        my $data   =  $Load->immediate( Pathname => $top[$i] );
+        ( $title ) = ( $data =~ m/<h1[^<>]*>([^<>]+)<\/h1>/gis );
+        $root      = $req_rec->document_root();
+        ( $url )   = ( $top[$i] =~ m/^\Q$root\E(.+)$/gis );
+        $url       =~ s/\.[^\.\/]+$//;
+      -]
+
+      <tr>
+        <td height="24" class="SidebarItem">
+        <p>[+ $topdates[$i] +] <a class="PSP" href="?c=[+ $url +]">[+ $title +]</a></p>
+        </td>
+      </tr>
+
+    [$ endif $]
+
+    [- $i-- -]
+
+  [$ endwhile $]
+
+  <tr>
+    <td align="center" valign="center">
+      <a href="/Content/Autonomy/Awards"><ximg src="/Widgets/Medals/" border="0" /></a>
+    </td>
+  </tr>
+
+</table>
+
+<!-- END Latest.psp-->

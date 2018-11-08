@@ -1,0 +1,6 @@
+<!ELEMENT editor (script,fields)>
+
+<!ELEMENT script CDATA >
+<!ATTLIST script language CDATA "JavaScript">
+
+<!ELEMENT fields EMPTY>

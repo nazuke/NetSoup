@@ -1,0 +1,164 @@
+<HTML>
+<HEAD>
+<TITLE>Protocol/pod/HTTP_1</TITLE>
+<LINK REV="made" HREF="mailto:jason.holland@dial.pipex.com">
+</HEAD>
+
+<BODY>
+
+<A NAME="__index__"></A>
+<!-- INDEX BEGIN -->
+
+<UL>
+
+	<LI><A HREF="#name">
+<FONT SIZE=-1>NAME</FONT></A></LI>
+	<LI><A HREF="#synopsis">
+<FONT SIZE=-1>SYNOPSIS</FONT></A></LI>
+	<LI><A HREF="#description">
+<FONT SIZE=-1>DESCRIPTION</FONT></A></LI>
+	<LI><A HREF="#methods">
+<FONT SIZE=-1>METHODS</FONT></A></LI>
+	<UL>
+
+		<LI><A HREF="#get()"><CODE>get</CODE></A></LI>
+		<LI><A HREF="#rget()"><CODE>rget</CODE></A></LI>
+		<LI><A HREF="#put()"><CODE>put</CODE></A></LI>
+		<LI><A HREF="#examples">Examples</A></LI>
+	</UL>
+
+	<LI><A HREF="#copying">
+<FONT SIZE=-1>COPYING</FONT></A></LI>
+	<LI><A HREF="#author">
+<FONT SIZE=-1>AUTHOR</FONT></A></LI>
+</UL>
+<!-- INDEX END -->
+
+<HR>
+<P>
+<H1><A NAME="name">
+<FONT SIZE=-1>NAME</FONT></A></H1>
+<P>NetSoup::Protocol::HTTP_1</P>
+<P>
+<A HREF="#__index__"><SMALL>page index</SMALL></A>
+<HR>
+<H1><A NAME="synopsis">
+<FONT SIZE=-1>SYNOPSIS</FONT></A></H1>
+<PRE>
+    use NetSoup::Protocol::HTTP_1;
+    my $http = NetSoup::Protocol::HTTP_1-&gt;new();</PRE>
+<P>
+<A HREF="#__index__"><SMALL>page index</SMALL></A>
+<HR>
+<H1><A NAME="description">
+<FONT SIZE=-1>DESCRIPTION</FONT></A></H1>
+<P>This class provides high level object methods for fetching and storing data on 
+<FONT SIZE=-1>HTTP</FONT> servers on the World Wide Web. This class specifically caters for 
+<FONT SIZE=-1>HTTP/1.0</FONT> compliant servers.</P>
+<P>It is possible to both import and export data to and from web servers.</P>
+<P>
+<A HREF="#__index__"><SMALL>page index</SMALL></A>
+<HR>
+<H1><A NAME="methods">
+<FONT SIZE=-1>METHODS</FONT></A></H1>
+<P>
+<H2><A NAME="get()"><CODE>get</CODE></A></H2>
+<P>Use this method to grab some data from a web site.</P>
+<PRE>
+    $status = $object-&gt;get( Url      =&gt; $url,
+                            Data     =&gt; \$data,
+                            Callback =&gt; sub { my $url  = shift;
+                                              my $data = shift; } );</PRE>
+<P>You <STRONG>must</STRONG> supply a fully formed url when downloading a single item using this method.</P>
+<P>The scalar reference named <CODE>DATA</CODE> will be overwritten with the new incoming data, the previous contents are discarded.</P>
+<P>The callback is optional. The callback is called each time the method is called, if that makes sense ?</P>
+<P>
+<FONT SIZE=-1>A</FONT> scalar value is returned containing a standard 
+<FONT SIZE=-1>HTTP</FONT> numerical response code.</P>
+<P>
+<H2><A NAME="rget()"><CODE>rget</CODE></A></H2>
+<P>Use this method to recursively download web pages.</P>
+<PRE>
+    $status = $object-&gt;rget( Url      =&gt; $url,
+                             Data     =&gt; \$data,
+                             Max      =&gt; $max,
+                             Bidirect =&gt; 0 | 1
+                             Infinite =&gt; 0 | 1
+                             Callback =&gt; sub {} );</PRE>
+<P>This method wraps the <CODE>get</CODE> method with the same parameters and return codes.</P>
+<P>The <CODE>Max</CODE> property should be set to the maximum link depth that you wish the method to descend to. Please note that this is <STRONG>not</STRONG> the same as the number of pages actually retrieved.</P>
+<P>The <CODE>Bidirect</CODE> property determines whether the method should retrieve documents that are in directories <EM>before</EM> the directory originally specified in the starting url.</P>
+<P>For instance, if the following url was specified:</P>
+<PRE>
+    <A HREF="http://localhost/dir1/dir2/index.html">http://localhost/dir1/dir2/index.html</A></PRE>
+<P>And <CODE>Bidirect</CODE> was set to <CODE>0</CODE>, then attempting to retrieve:</P>
+<PRE>
+    <A HREF="http://localhost/dir1/index.html">http://localhost/dir1/index.html</A></PRE>
+<P>Will fail. Setting <CODE>Bidirect</CODE> to <CODE>1</CODE> will retrieve documents higher up in the directory hierarchy. This is useful if you only need to process a particular sub-directory of documents, but to the entire site.</P>
+<P>The callback is executed for each page successfully retrieved. Unsuccessful attempts are currently discarded.</P>
+<P>
+<H2><A NAME="put()"><CODE>put</CODE></A></H2>
+<P>Use this method to send a document to a web server.</P>
+<P>Please note that the web server must have some way of storing the received document, otherwise not much will happen. Look in the <CODE>NetSoup/Scripts/cgi-bin</CODE> directory for a simple <CODE>put.cgi</CODE> handler that can be used with the Apache web server. This script work with my version of Apache (1.3.6), but please check your server documentation for more details about installing and using a put method.</P>
+<PRE>
+    $status = $object-&gt;put( Url  =&gt; $url,
+                            Data =&gt; \$data );</PRE>
+<P>You <STRONG>must</STRONG> supply a fully formed url when downloading a single item using this method.</P>
+<P>The contents of the scalar reference are packaged up and sent to the url.</P>
+<P>
+<FONT SIZE=-1>A</FONT> scalar value is returned containing a standard 
+<FONT SIZE=-1>HTTP</FONT> numerical response code.</P>
+<P>
+<H2><A NAME="examples">Examples</A></H2>
+<P>Here is a simple example for fetching some web data:</P>
+<PRE>
+    use NetSoup::Protocol::HTTP_1;
+    my $http   = NetSoup::Protocol::HTTP_1-&gt;new();
+    my $data   = &quot;&quot;;
+    my $status = $http-&gt;get( Url  =&gt; &quot;<A HREF="http://localhost/&quot">http://localhost/&quot</A>;,
+                             Data =&gt; \$data );
+    print( $data );</PRE>
+<P>After calling the <CODE>get()</CODE> method, <CODE>$data</CODE> now contains any data returned by the web server.</P>
+<P>The <CODE>get()</CODE> method also returns the 
+<FONT SIZE=-1>HTTP</FONT> numerical status code in <CODE>$status</CODE>.</P>
+<P>
+<A HREF="#__index__"><SMALL>page index</SMALL></A>
+<HR>
+<H1><A NAME="copying">
+<FONT SIZE=-1>COPYING</FONT></A></H1>
+<P>Copyright 
+<FONT SIZE=-1>(C)</FONT> 2000 Jason Holland</P>
+<P>This program is free software; you can redistribute it and/or modify it under the terms of the 
+<FONT SIZE=-1>GNU</FONT> General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</P>
+<P>This program is distributed in the hope that it will be useful, but 
+<FONT SIZE=-1>WITHOUT</FONT> 
+<FONT SIZE=-1>ANY</FONT> 
+<FONT SIZE=-1>WARRANTY;</FONT> without even the implied warranty of 
+<FONT SIZE=-1>MERCHANTABILITY</FONT> or 
+<FONT SIZE=-1>FITNESS</FONT> 
+<FONT SIZE=-1>FOR</FONT> 
+<FONT SIZE=-1>A</FONT> 
+<FONT SIZE=-1>PARTICULAR</FONT> 
+<FONT SIZE=-1>PURPOSE.</FONT> See the 
+<FONT SIZE=-1>GNU</FONT> General Public License for more details.</P>
+<P>You should have received a copy of the 
+<FONT SIZE=-1>GNU</FONT> General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, 
+<FONT SIZE=-1>MA</FONT> 02111-1307 
+<FONT SIZE=-1>USA</FONT></P>
+<P>
+<A HREF="#__index__"><SMALL>page index</SMALL></A>
+<HR>
+<H1><A NAME="author">
+<FONT SIZE=-1>AUTHOR</FONT></A></H1>
+<P>Jason Holland <EM><A HREF="mailto:jason.holland@dial.pipex.com">jason.holland@dial.pipex.com</A></EM></P>
+<P><A HREF="#__index__"><SMALL>page index</SMALL></A></P>
+
+</BODY>
+
+</HTML>
+lto:jason.holland@dial.pipex.com">jason.holland@dial.pipex.com</A></EM></P>
+<P><A HREF="#__index__"><SMALL>page index</SMALL></A></P>
+
+</BODY>
+
+</HTML>

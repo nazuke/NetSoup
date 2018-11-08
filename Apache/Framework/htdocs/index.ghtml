@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+  <head>
+    <title>Framework Grid Test Harness</title>
+  </head>
+  <body>
+
+		<h1>Framework Grid Test Harness</h1>
+
+		<script language="JavaScript" src="Menu.js"></script>
+
+
+		<p><variable name="variable" /></p>
+
+
+		<table border="1">
+			<tr>
+				<td>
+
+
+					<content number="1" filter="NetSoup::Apache::Framework::Filters::UC,NetSoup::Apache::Framework::Filters::Hyperlink" />
+
+
+				</td>
+				<td>
+
+					
+				<widget package="NetSoup::Apache::Framework::Widgets::Test" method="widget" />
+					
+					
+				</td>
+			</tr>
+		</table>
+
+
+		<include href="included.html" recursive="false" />
+
+
+		<p><a href="?c1=/Framework/c1">Link</a></p>
+
+
+		<include href="includes/included.html" recursive="false" />
+
+
+		<p><variable name="another_var" /></p>
+
+
+	</body>
+</html>

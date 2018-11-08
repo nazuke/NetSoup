@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title></title>
+    <style type="text/css">
+      div.Z {
+        position:         absolute;
+        top:              0px;
+        left:             0px;
+        background-color: #FFFFFF;
+        border-color:     #000000;
+        border-style:     solid;
+        border-width:     2px;
+        padding:          4px;
+      }
+      div.ZZ {
+        display: none;
+      }
+    </style>
+    <script language="JavaScript" type="text/javascript">
+
+
+      function showFloaterContent() {
+        window.status = "mouse over";
+        var f = document.getElementById( "floatercontent" );
+        f.style.display = "block";
+        setTimeout( "hideFloaterContent()", 10000 );
+      }
+
+
+      function hideFloaterContent() {
+        var f = document.getElementById( "floatercontent" );
+        f.style.display = "none";
+      }
+
+
+      function positionFloater() {
+        var f        = document.getElementById( "floater" );
+        f.style.left = window.pageXOffset + "px";
+        f.style.top  = window.pageYOffset + "px";
+        setTimeout( "positionFloater()", 50 );
+        window.status = window.innerHeight;
+      }
+
+
+      setTimeout( "positionFloater()", 1000 );
+
+
+    </script>
+  </head>
+  <body onClick="hideFloaterContent()">
+    
+
+    <div id="floater" class="Z" onMouseOver="showFloaterContent();">
+      <div>ICON</div>
+      <div id="floatercontent" class="ZZ">
+        <p>Query: <input name="query" value="" /></p>
+        <iframe src="FloaterContent.psp"></iframe>
+      </div>
+    </div>
+    
+
+    <script language="JavaScript">
+      <!--
+      for( var i = 0 ; i <= 100 ; i++ ) {
+        document.write( "<p>Blank line</p>" );
+      }
+      //-->
+    </script>
+    
+
+  </body>
+</html>

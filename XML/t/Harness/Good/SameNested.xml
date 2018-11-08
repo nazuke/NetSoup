@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE menu SYSTEM "SameNested.dtd">
+<menu>
+	<item name="one">
+		<item name="two">
+			<item name="three">
+				<item name="four" />
+			</item>
+			<item name="four" />
+		</item>
+		<item name="four" />
+	</item>
+	<item name="four" />
+</menu>

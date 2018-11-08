@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>PSP Editor</title>
+    [- Execute ( $req_rec->lookup_uri( "/PSP/Style" )->filename() ) -]
+  </head>
+  <body class="PSP">
+
+    [-
+      use NetSoup::Files::Save;
+      $Save = NetSoup::Files::Save->new();
+    -]
+
+    [$ if( $fdat{"s"} ) $] [# Saving File #]
+
+      [$ if( $fdat{"c"} eq $fdat{"s"} ) $]
+
+        [-
+          $data = $fdat{"content"};
+          $Save->save( Pathname => $req_rec->lookup_uri( $fdat{"c"} )->filename(), Data => \$data );
+        -]
+
+        <p>Page Saved</p>
+
+        <script language="JavaScript">
+          <!--
+            window.opener.location = window.opener.location;
+            window.close();
+          //-->
+        </script>
+
+      [$ else $]
+
+        <p>Oops</p>
+
+      [$ endif $]
+
+    [$ else $] [# Editing File #]
+
+      [$ if( $fdat{"c"} ) $]
+
+        <form method="POST" action="Editor" onSubmit="return(confirm('Are you sure you want to save changes to this file?'))">
+          <table class="PSP">
+            <tbody>
+              <tr>
+                <td class="header">Editing File "[+ $fdat{"c"} +]"</td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="hidden" name="c" value="[+ $fdat{"c"} +]" />
+                  <input type="hidden" name="s" value="[+ $fdat{"c"} +]" />
+                  <textarea class="PSP" name="content" cols="60" rows="40">[- if( -s $req_rec->lookup_uri( $fdat{c} )->filename() != 0 ) {
+                                                                                Execute ( $req_rec->lookup_uri( $fdat{c} )->filename() );
+                                                                              } -]</textarea>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input class="PSP" type="submit" value="save" />
+                  <input class="PSP" type="button" value="cancel" onClick="window.close()"/>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+
+      [$ else $]
+
+        <h1>File Not Specified!</h1>
+
+      [$ endif $]
+
+    [$ endif $]
+
+  </body>
+</html>

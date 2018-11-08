@@ -1,0 +1,9 @@
+<%perl>
+  my $t = NetSoup::Autonomy::DRE::Query::t->new( Hostname  => $r->dir_config( "DRE_HOST" ),
+                                                 Port      => $r->dir_config( "DRE_QUERY_PORT" ),
+                                                 Querytext => "http://" . $r->hostname() . $r->uri(),
+                                                 XOptions  => "useurl" );
+  my $keywords = join( ", ", $t->terms() );
+</%perl>
+
+<meta name="keywords" content="<% $keywords %>" />

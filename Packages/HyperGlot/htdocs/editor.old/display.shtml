@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <title>HyperGlot: Display</title>
+        <style type="text/css">
+            <!--#include virtual="/HyperGlot/styles.css"-->
+        </style>
+    </head>
+    <body>
+        <h1 align="center">No Document Loaded</h1>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+General Motors	4
+BP	2
+Ford Motor Company
+DaimlerChrysler
+General Electric	2
+Total fina Elf
+Volkswagen
+Siemens	3
+Philip Morris
+Verizon
+AT&T	3
+FIAT
+Nestle	3
+State Farm Insurance
+HSBC	3
+Hewlett Packard	3
+ABN Amro	2
+Merrill Lynch
+France Telecom
+Tesco
+Pfizer	2
+Goldman Sachs
+GlaxoSmithKline
+Philips	4
+FritoLay / Pepsico
+Intel
+Sprint
+New York Life Insurance
+Lucent Technologies
+Ericsson	3
+EDS
+Royal & SunAlliance	2
+Qwest 	2
+Novartis
+AMR Research
+Credit Lyonnais
+Sun Microsystems	4
+Norsk Hydro
+AstraZeneca	6
+Skanska
+BAE Systems
+Consignia
+Henkel
+Bank of Montreal
+Danske Bank
+gnia
+Henkel
+Bank of Montreal
+Danske Bank

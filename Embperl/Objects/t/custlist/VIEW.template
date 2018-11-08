@@ -1,0 +1,11 @@
+<table border="1">
+<tr>
+<td>[+ $ENV{PSP_CUSTOMER_ICON} +]</td>
+</tr>
+<tr>
+<td>[+ $ENV{PSP_CUSTOMER_URL} +]</td>
+</tr>
+<tr>
+<td>[+ $ENV{PSP_CUSTOMER_CONTENT} +]</td>
+</tr>
+</table>

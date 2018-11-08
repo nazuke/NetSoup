@@ -1,0 +1,428 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE menu SYSTEM "MenuMaker.dtd">
+
+<menu>
+
+
+
+
+
+
+
+
+	<item name="Autonomy"           href="/">
+		<item name="Overview"         href="/Content/Autonomy/" />
+    <item name="Management"       href="/Content/Autonomy/Management" />
+    <item name="Awards"           href="/Content/Autonomy/Awards" />
+    <item name="Office Locations" href="/Content/Autonomy/Office_Locations" />
+    <item name="Employment"       href="/Content/Autonomy/Employment" />
+    <item name="FAQ"              href="/Content/Autonomy/FAQ" />
+    <item name="Website Map"      href="/Content/Autonomy/Sitemap" />
+<!--    <item name="Home Page"        href="/" />-->
+  </item>
+
+
+
+
+
+
+
+
+  <item name="Technology"                            href="/Content/Technology/">
+    
+    <item name="Introduction"                        href="/Content/Technology/" />
+    
+    <item name="Limitations of Other Approaches"     href="/Content/Technology/Limitations_Other_Approaches">
+      <item name="Keyword Searching"                 href="/Content/Technology/Other_Approaches/Keyword_Searching" />
+      <item name="Collaborative Filtering"           href="/Content/Technology/Other_Approaches/Collaborative_Filtering" />
+      <item name="Manual Tagging"                    href="/Content/Technology/Other_Approaches/Manual_Tagging" />
+    </item>
+    
+    <item name="Technical Benefits">
+      <item name="Automation"                        href="/Content/Technology/Technology_Benefits/Automation" />
+      <item name="Infrastructure"                    href="/Content/Technology/Technology_Benefits/Infrastructure" />
+      <item name="Accuracy"                          href="/Content/Technology/Technology_Benefits/Accuracy" />
+      <item name="Speed &amp; Performance"           href="/Content/Technology/Technology_Benefits/SpeedAndPerformance" />
+      <item name="Scalability"                       href="/Content/Technology/Technology_Benefits/Scalability" />
+      <item name="Security"                          href="/Content/Technology/Technology_Benefits/Security" />
+      <item name="Language Independence"             href="/Content/Technology/Technology_Benefits/LanguageIndependence" />
+      <item name="Easy Integration"                  href="/Content/Technology/Technology_Benefits/EasyIntegration" />
+      <item name="Adding Intelligence to XML"        href="/Content/Technology/Technology_Benefits/XML" />
+      <item name="Supported Formats"                 href="/Content/Technology/Technology_Benefits/SupportedFormats" />
+    </item>
+    
+  </item>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <item name="Products" href="/Content/Products/">
+
+
+    <item name="Overview" href="/Content/Products/" />
+    
+    
+    <item name="IDOL Server">
+      <item name="Overview"                      href=""                                                   hint="<h1>HINT GOES HERE...</h1>" />
+      <item name="Retrieval"                     href="/Content/IDOL/Slots/Content#Retrieval"              hint="<h1>HINT GOES HERE...</h1>" />
+      <item name="Categorization"                href="/Content/IDOL/Slots/Classification#Categorization"  hint="<h1>HINT GOES HERE...</h1>" />
+      <item name="Hyperlinking"                  href="/Content/IDOL/Slots/Content#Hyperlinking"           hint="<h1>HINT GOES HERE...</h1>" />
+      <item name="Alerting"                      href="/Content/IDOL/Slots/Personalization#Delivery"       hint="<h1>HINT GOES HERE...</h1>" />
+      <item name="Clustering"                    href="/Content/IDOL/Slots/Classification#Clustering"      hint="<h1>HINT GOES HERE...</h1>" />
+      <item name="XML"                           href="/Content/IDOL/Slots/XML"                            hint="<h1>HINT GOES HERE...</h1>" />
+      <item name="Metadata"                      href="/Content/IDOL/Slots/Content#Metadata"               hint="<h1>HINT GOES HERE...</h1>" />
+      <item name="Agents"                        href="/Content/IDOL/Slots/Content#Retrieval"              hint="<h1>HINT GOES HERE...</h1>" />
+      <item name="Profling"                      href="/Content/IDOL/Slots/Personalization#Profiling"      hint="<h1>HINT GOES HERE...</h1>" />
+      <item name="Fetches"                       href="/Content/IDOL/Connectors/"                          hint="<h1>HINT GOES HERE...</h1>" />
+      <item name="User Agent Server"             href="/Content/IDOL/APPOLS/UA_Server/"                    hint="<h1>HINT GOES HERE...</h1>" />
+      <item name="API"                           href="/Content/IDOL/APPOLS/Autonomy_Application_Builder/" hint="<h1>HINT GOES HERE...</h1>" />
+    </item>
+
+
+    <item name="Interfaces">
+      <item name="Portal"                        href="/Content/IDOL/APPOLS/Portal-in-a-Box/"              hint="<h1>Portal-in-a-Box</h1>" />
+      <item name="Active Knowledge"              href="/Content/IDOL/APPOLS/Active_Knowledge/"             hint="<h1>Active Knowledge</h1>" />
+      <item name="Retrieval"                     href="/Content/IDOL/Slots/Content#Retrieval"              hint="<h1>Retrieval</h1>" />
+      <item name="Autonomy Answer"               href="/Content/IDOL/APPOLS/Autonomy_Answer/"              hint="<h1>Autonomy Answer</h1>" />
+      <item name="Visualization"                 href=""                                                   hint="<h1>Visualization</h1>" />
+      <item name="VeryLite"                      href="/Content/IDOL/APPOLS/Autonomy_VeryLite/"            hint="<h1>VeryLite</h1>" />
+      <item name="Wireless Suite"                href="/Content/IDOL/APPOLS/Wireless_Suite/"               hint="<h1>Wireless Suite</h1>" />
+      <item name="Summarization"                 href="/Content/IDOL/Slots/Content#Summarization"          hint="<h1>Summarization</h1>" />
+      <item name="Peer-to-Peer"                  href="/Content/IDOL/ACI_Options/P2P/"                     hint="<h1>Peer-to-Peer</h1>" />
+      <item name="CEN"                           href="/Content/IDOL/Slots/Personalization#Collaboration"  hint="<h1>CEN</h1>" />
+    </item>
+    
+    
+    <item name="Connectors">
+      <item name="Unique Repository Interfacing" href="/Content/IDOL/Connectors/"                          hint="<h1>HINT GOES HERE...</h1>" />
+      <item name="Multilingual"                  href="/Content/IDOL/Connectors/Multilingual"              hint="<h1>HINT GOES HERE...</h1>" />
+      <item name="Legacy"                        href="/Content/IDOL/APPOLS/Autonomy_VeryLite/"            hint="<h1>HINT GOES HERE...</h1>" />
+    </item>
+
+    
+    <item name="Administration">
+      <item name="Remote Administration"          href=""                                                  hint="<h1>HINT GOES HERE...</h1>" />
+      <item name="Distributed Systems">
+        <item name="Distributed Service Handler"  href="/Content/IDOL/ACI_Options/#DiSH_Bookmark"          hint="<h1>DiSH</h1>" />
+        <item name="Distributed Query Handler"    href="/Content/IDOL/ACI_Options/#DQH_Bookmark"           hint="<h1>DQH</h1>" />
+        <item name="Distributed Indexing Handler" href="/Content/IDOL/ACI_Options/#DIH_Bookmark"           hint="<h1>DIH</h1>" />
+      </item>
+      <item name="Categorizer"                    href="/Content/IDOL/APPOLS/Categorizer/"                 hint="<h1>Categrorizer</h1>" />
+    </item>
+    
+
+    <item name="Portlets">
+      <item name="BEA Weblogic Server"            href="/Content/IDOL/APPOLS/Autonomy_Portlets/BEA"        hint="<h1>HINT GOES HERE...</h1>" />
+      <item name="IBM WebSphere Portal Server"    href="/Content/IDOL/APPOLS/Autonomy_Portlets/IBM"        hint="<h1>HINT GOES HERE...</h1>" />
+      <item name="Oracle9i Application Server"    href="/Content/IDOL/APPOLS/Autonomy_Portlets/Oracle"     hint="<h1>HINT GOES HERE...</h1>" />
+      <item name="Sybase EP"                      href="/Content/IDOL/APPOLS/Autonomy_Portlets/Sybase"     hint="<h1>HINT GOES HERE...</h1>" />
+    </item>
+    
+    
+    <item name="Voice and Video">
+      <item name="Voice Suite"                    href="/Content/IDOL/APPOLS/Voice_Suite/"                 hint="<h1>HINT GOES HERE...</h1>" />
+      <item name="DREMEDIA Production Suite"      href="/Content/IDOL/APPOLS/DREMEDIA_Production_Suite/"   hint="<h1>HINT GOES HERE...</h1>" />
+    </item>
+    
+
+  </item>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <item name="ROI &amp; Benefits">
+    
+    <item name="Technical Benefits">
+      <item name="Automation"                        href="/Content/Technology/Technology_Benefits/Automation" />
+      <item name="Infrastructure"                    href="/Content/Technology/Technology_Benefits/Infrastructure" />
+      <item name="Accuracy"                          href="/Content/Technology/Technology_Benefits/Accuracy" />
+      <item name="Speed &amp; Performance"           href="/Content/Technology/Technology_Benefits/SpeedAndPerformance" />
+      <item name="Scalability"                       href="/Content/Technology/Technology_Benefits/Scalability" />
+      <item name="Security"                          href="/Content/Technology/Technology_Benefits/Security" />
+      <item name="Language Independence"             href="/Content/Technology/Technology_Benefits/LanguageIndependence" />
+      <item name="Easy Integration"                  href="/Content/Technology/Technology_Benefits/EasyIntegration" />
+      <item name="Adding Intelligence to XML"        href="/Content/Technology/Technology_Benefits/XML" />
+      <item name="Supported Formats"                 href="/Content/Technology/Technology_Benefits/SupportedFormats" />
+    </item>
+    
+		<item name="ROI Benefits"                        href="/Content/Solutions/ROI/">
+			<item name="Return on Investment"              href="/Content/Solutions/ROI/" />
+			<item name="CRM Scenarios"                     href="/Content/Solutions/ROI/CRM" />
+			<item name="Value Proposition"                 href="/Content/Solutions/ROI/Value_Proposition" />
+			<item name="Business Problem/Solution"         href="/Content/Solutions/ROI/Business_Problem" />
+			<item name="ROI &amp; Total Cost of Ownership" href="/Content/Solutions/ROI/ROI_TCO" />
+			<item name="Sample Calculations"               href="/Content/Solutions/ROI/Sample_Calculations" />
+		</item>
+    
+    <item name="Business Solutions">
+      <item name="Customer Relationship Management"      href="/Content/Solutions/BusinessSolutions/CRM">
+      	<item name="Help Desk / Call Center Solutions"   href="/Content/Solutions/BusinessSolutions/CRM_Benefits/Help_Desk" />
+      	<item name="Sales Call Center - Driving Revenue" href="/Content/Solutions/BusinessSolutions/CRM_Benefits/Sales_Call_Center" />
+      	<item name="Sales Force Automation"              href="/Content/Solutions/BusinessSolutions/CRM_Benefits/Sales_Force_Automation" />
+      	<item name="Automated Online Customer Response"  href="/Content/Solutions/BusinessSolutions/CRM_Benefits/Automated_Online_Customer_Response" />
+      </item>
+      <item name="Human Resource Management"             href="/Content/Solutions/BusinessSolutions/HR" />
+      <item name="Enterprise Portal"                     href="/Content/Solutions/BusinessSolutions/EnterprisePortal" />
+      <item name="New Media"                             href="/Content/Solutions/BusinessSolutions/NewMedia" />
+      <item name="E-Commerce"                            href="/Content/Solutions/BusinessSolutions/ECommerce" />
+      <item name="XML"                                   href="/Content/Solutions/BusinessSolutions/XML" />
+      <item name="Business Intelligence"                 href="/Content/Solutions/BusinessSolutions/BusinessIntelligence" />
+      <item name="Mobile &amp; Wireless"                 href="/Content/Solutions/BusinessSolutions/MobileWireless" />
+      <item name="Digital TV"                            href="/Content/Solutions/BusinessSolutions/DigitalTV" />
+      <item name="Speech"                                href="/Content/Solutions/BusinessSolutions/Speech" />
+    </item>
+    
+  </item>
+
+
+
+
+
+
+
+
+  <item name="Customers">
+    <item name="By Industry Sector">
+      <item name="Energy &amp; Utilities"         href="/Content/Customers/Industry_Sector/EnergyUtilities" />
+      <item name="Financial Services"             href="/Content/Customers/Industry_Sector/FinancialServices" />
+      <item name="Legal"                          href="/Content/Customers/Industry_Sector/Legal" />
+      <item name="Life Sciences &amp; Healthcare" href="/Content/Customers/Industry_Sector/LifeSciencesHealthcare" />
+      <item name="Manufacturing"                  href="/Content/Customers/Industry_Sector/Manufacturing" />
+      <item name="New Media"                      href="/Content/Customers/Industry_Sector/NewMedia" />
+      <item name="Professional Services"          href="/Content/Customers/Industry_Sector/ProfessionalServices" />
+      <item name="Public Sector"                  href="/Content/Customers/Industry_Sector/PublicSector" />
+      <item name="Retail"                         href="/Content/Customers/Industry_Sector/Retail" />
+      <item name="Technology"                     href="/Content/Customers/Industry_Sector/Technology" />
+      <item name="Telecommunications"             href="/Content/Customers/Industry_Sector/Telecommunications" />
+    </item>
+    <item name="Case Studies">
+			<item name="AMR"                            href="/Content/Customers/Case_Studies/AMR" />
+      <item name="Blue Martini"                   href="/Content/Customers/Case_Studies/Blue_Martini" />
+      <item name="Boston Herald"                  href="/Content/Customers/Case_Studies/Boston_Herald" />
+      <item name="Butterworths"                   href="/Content/Customers/Case_Studies/Butterworths" />
+      <item name="CIBIT"                          href="/Content/Customers/Case_Studies/CIBIT" />
+      <item name="Consumentenbond"                href="/Content/Customers/Case_Studies/Consumentenbond" />
+      <item name="Danske Bank"                    href="/Content/Customers/Case_Studies/Danske_Bank" />
+      <item name="dooyoo"                         href="/Content/Customers/Case_Studies/dooyoo" />
+      <item name="eSubstance"                     href="/Content/Customers/Case_Studies/eSubstance" />
+      <item name="EmployOn"                       href="/Content/Customers/Case_Studies/EmployOn" />
+      <item name="Ericsson"                       href="/Content/Customers/Case_Studies/Ericsson" />
+      <item name="Fireman's Fund"                 href="/Content/Customers/Case_Studies/Firemans_Fund" />
+		</item>
+    <item name="More Case Studies">
+      <item name="Knight Ridder"                  href="/Content/Customers/Case_Studies/Knight_Ridder" />
+      <item name="Novartis"                       href="/Content/Customers/Case_Studies/Novartis" />
+      <item name="Organon"                        href="/Content/Customers/Case_Studies/Organon" />
+      <item name="Relevare"                       href="/Content/Customers/Case_Studies/Relevare" />
+      <item name="Royal Mail"                     href="/Content/Customers/Case_Studies/Royal_Mail" />
+      <item name="SAIC"                           href="/Content/Customers/Case_Studies/SAIC" />
+      <item name="SF Gate"                        href="/Content/Customers/Case_Studies/SF_Gate" />
+      <item name="SHRM"                           href="/Content/Customers/Case_Studies/SHRM" />
+      <item name="University of Maryland"         href="/Content/Customers/Case_Studies/Maryland" />
+      <item name="US DOD"                         href="/Content/Customers/Case_Studies/US_DOD" />
+      <item name="US DOE"                         href="/Content/Customers/Case_Studies/US_DOE" />
+      <item name="VHA"                            href="/Content/Customers/Case_Studies/VHA" />
+      <item name="yaTack"                         href="/Content/Customers/Case_Studies/yaTack" />
+    </item>
+    <item name="Testimonials"                     href="/Content/Customers/Testimonials" />
+  </item>
+
+
+
+
+
+
+
+
+  <item name="OEMs"              href="/Content/OEMs/">
+    <item name="Autonomy's OEMs" href="/Content/OEMs/" />
+    <item name="OEM Portfolio"   href="/Content/OEMs/OEMList" />
+    <item name="OEM Solutions"   href="/Content/OEMs/OEMSolutions" />
+    <item name="Becoming an OEM" href="/Content/OEMs/BecomingAnOEM" />
+  </item>
+
+
+
+
+
+
+
+
+  <item name="Partners"                            href="/Content/Partners/">
+    <item name="Introduction"                      href="/Content/Partners/" />
+    <item name="VARs / SIs / ASPs">
+      <item name="Global"                          href="/Content/Partners/VARs/Global" />
+      <item name="North America"                   href="/Content/Partners/VARs/NorthAmerica" />
+      <item name="United Kingdom &amp; Ireland"    href="/Content/Partners/VARs/UnitedKingdom" />
+      <item name="Europe"                          href="/Content/Partners/VARs/Europe">
+				<item name="Austria"                       href="/Content/Partners/VARs/European/Austria" />
+				<item name="Benelux"                       href="/Content/Partners/VARs/European/Benelux" />
+				<item name="France"                        href="/Content/Partners/VARs/European/France" />
+				<item name="Germany"                       href="/Content/Partners/VARs/European/Germany" />
+				<item name="Greece"                        href="/Content/Partners/VARs/European/Greece" />
+				<item name="Hungary"                       href="/Content/Partners/VARs/European/Hungary" />
+				<item name="Italy"                         href="/Content/Partners/VARs/European/Italy" />
+				<item name="Russia"                        href="/Content/Partners/VARs/European/Russia" />
+				<item name="Spain"                         href="/Content/Partners/VARs/European/Spain" />
+				<item name="Switzerland"                   href="/Content/Partners/VARs/European/Switzerland" />
+			</item>
+			<item name="Nordic"                          href="/Content/Partners/VARs/Nordic" />
+			<item name="Middle East"                     href="/Content/Partners/VARs/MiddleEast" />
+      <item name="Asia-Pacific"                    href="/Content/Partners/VARs/AsiaPacific" />
+      <item name="South Africa"                    href="/Content/Partners/VARs/SouthAfrica" />
+    </item>
+    <item name="Technology Partners">
+      <item name="Strategic / Technology Partners" href="/Content/Partners/TechnologyPartners" />
+      <item name="Content Partners"                href="/Content/Partners/ContentPartners" />
+    </item>
+    <item name="Becoming a Partner">
+      <item name="Partner Value Propositions"      href="/Content/Partners/BecomingAPartner/PartnerValuePropositions" />
+      <item name="Qualification Criteria"          href="/Content/Partners/BecomingAPartner/QualificationCriteria" />
+      <item name="Program Benefits"                href="/Content/Partners/BecomingAPartner/ProgramBenefits" />
+      <item name="Developing a Partnership"        href="/Content/Partners/BecomingAPartner/DevelopingAPartnership" />
+      <item name="Download Partner Forms"          href="/Content/Partners/BecomingAPartner/DownloadPartnerForms" />
+    </item>
+    <item name="Autonomy Education"                href="/Content/Partners/Education" />
+  </item>
+
+
+
+
+
+
+
+
+  <item name="Press"            href="/Content/Press/">
+    <item name="Latest News"    href="/Content/Press/" />
+    <item name="Press Archives" href="/Content/Press/Archives/2002/">
+      <item name="2002"         href="/Content/Press/Archives/2002/" />
+      <item name="2001"         href="/Content/Press/Archives/2001/" />
+      <item name="2000"         href="/Content/Press/Archives/2000/" />
+      <item name="1999"         href="/Content/Press/Archives/1999/" />
+      <item name="1998"         href="/Content/Press/Archives/1998/" />
+      <item name="1997"         href="/Content/Press/Archives/1997/" />
+      <item name="1996"         href="/Content/Press/Archives/1996/" />
+    </item>
+    <item name="Fact Sheet"     href="/Content/Press/FactSheet" />
+    <item name="Press Contacts" href="/Content/Press/PressContacts" />
+  </item>
+
+
+
+
+
+
+
+
+  <item name="Events"             href="/Content/Events/Tradeshows/USA/">
+    <item name="Tradeshows">
+      <item name="North America"  href="/Content/Events/Tradeshows/USA/" />
+      <item name="United Kingdom" href="/Content/Events/Tradeshows/UK/" />
+      <item name="Europe"         href="/Content/Events/Tradeshows/Europe/" />
+      <item name="Asia-Pacific"   href="/Content/Events/Tradeshows/AsiaPacific/" />
+    </item>
+    <item name="Seminars"         href="/Content/Events/Seminars/" />
+  </item>
+
+
+
+
+
+
+
+
+  <item name="Investors"                    href="/Content/Investors/">
+    <item name="Introduction"               href="/Content/Investors/" />
+    <item name="Management"                 href="/Content/Autonomy/Management" />
+    <item name="Why is Autonomy Different?" href="/Content/Investors/WhyIsAutonomyDifferent" />
+    <item name="Financial Results"          href="/Content/Investors/FinancialResultsDocs/">
+			<item name="2002"                     href="/Content/Investors/FinancialResultsDocs/2002Q2">
+				<item name="2nd Quarter"            href="/Content/Investors/FinancialResultsDocs/2002Q2" />
+				<item name="1st Quarter"            href="/Content/Investors/FinancialResultsDocs/2002Q1" />
+			</item>
+      <item name="2001"                     href="/Content/Investors/FinancialResultsDocs/2001Q4">
+        <item name="4th Quarter"            href="/Content/Investors/FinancialResultsDocs/2001Q4" />
+        <item name="4th Quarter Schedule"   href="/Content/Investors/FinancialResultsDocs/2001Q4Schedule" />
+        <item name="3rd Quarter"            href="/Content/Investors/FinancialResultsDocs/2001Q3" />
+        <item name="3rd Quarter Update"     href="/Content/Investors/FinancialResultsDocs/2001Q3Update" />
+        <item name="2nd Quarter"            href="/Content/Investors/FinancialResultsDocs/2001Q2" />
+        <item name="2nd Quarter Schedule"   href="/Content/Investors/FinancialResultsDocs/2001Q2Schedule" />
+        <item name="2nd Quarter Update"     href="/Content/Investors/FinancialResultsDocs/2001Q2Update" />
+        <item name="1st Quarter"            href="/Content/Investors/FinancialResultsDocs/2001Q1" />
+        <item name="1st Quarter Update"     href="/Content/Investors/FinancialResultsDocs/2001Q1Update" />
+      </item>
+      <item name="2000"                     href="/Content/Investors/FinancialResultsDocs/2000Q4">
+        <item name="4th Quarter"            href="/Content/Investors/FinancialResultsDocs/2000Q4" />
+        <item name="3rd Quarter"            href="/Content/Investors/FinancialResultsDocs/2000Q3" />
+        <item name="2nd Quarter"            href="/Content/Investors/FinancialResultsDocs/2000Q2" />
+        <item name="1st Quarter"            href="/Content/Investors/FinancialResultsDocs/2000Q1" />
+      </item>
+      <item name="1999"                     href="/Content/Investors/FinancialResultsDocs/1999Q4">
+        <item name="4th Quarter"            href="/Content/Investors/FinancialResultsDocs/1999Q4" />
+        <item name="3rd Quarter"            href="/Content/Investors/FinancialResultsDocs/1999Q3" />
+        <item name="2nd Quarter"            href="/Content/Investors/FinancialResultsDocs/1999Q2" />
+        <item name="1st Quarter"            href="/Content/Investors/FinancialResultsDocs/1999Q1" />
+      </item>
+      <item name="1998"                     href="/Content/Investors/FinancialResultsDocs/1998Q4">
+        <item name="4th Quarter"            href="/Content/Investors/FinancialResultsDocs/1998Q4" />
+        <item name="3rd Quarter"            href="/Content/Investors/FinancialResultsDocs/1998Q3" />
+        <item name="2nd Quarter"            href="/Content/Investors/FinancialResultsDocs/1998Q2" />
+      </item>
+    </item>
+    <item name="Annual Reports"             href="/Content/Investors/AnnualReports" />
+    <item name="Investors FAQ"              href="/Content/Investors/FAQ" />
+  </item>
+
+
+
+
+
+
+
+
+  <item name="FAQ" href="/Content/Autonomy/FAQ" />
+
+
+  <item name="Myths" href="/Content/Autonomy/Myths" />
+
+
+
+
+
+
+
+
+</menu
+
+>

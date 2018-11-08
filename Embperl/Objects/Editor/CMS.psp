@@ -1,0 +1,23 @@
+    [- Execute ( $req_rec->lookup_uri( "/PSP/Style" )->filename() ) -]
+    <table class="PSP">
+      <tbody>
+        <tr>
+          <td class="header">PSP Editor</td>
+        </tr>
+        <tr>
+          <td>
+            <form method="GET" action="/PSP/Editor/Editor.psp" target="_blank">
+              <input type="hidden" name="c" value="[+ $fdat{'c'} +]" />
+              <input class="PSP" type="submit" value="edit page" />
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <form method="GET" action="/PSP/MenuMaker/Editor.psp" target="_blank">
+              <input class="PSP" type="submit" value="edit menu" />
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>

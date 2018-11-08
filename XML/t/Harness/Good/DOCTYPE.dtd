@@ -1,0 +1,8 @@
+<!ELEMENT card   (name)>
+<!ELEMENT name   (first,second)>
+<!ELEMENT first  (#PCDATA)>
+<!ELEMENT second (#PCDATA)>
+<!ATTLIST first maxlength CDATA "32">
+<!ATTLIST first mandatory (yes|no) "yes">
+<!ATTLIST second maxlength CDATA "32">
+<!ATTLIST second mandatory (yes|no) "yes">

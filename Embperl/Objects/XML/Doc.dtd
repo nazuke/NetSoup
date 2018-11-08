@@ -1,0 +1,3 @@
+<!ELEMENT doc (list)>
+<!ELEMENT list (item)>
+<!ELEMENT item (#PCDATA)>

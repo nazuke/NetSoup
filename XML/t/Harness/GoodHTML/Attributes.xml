@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<test:attributes>
+
+
+	<!-- This XML Document excercises the attribute parsing of the Preprocessor -->
+
+
+	<!-- Without Namespace -->
+
+	<img fixed>
+
+
+	<single-quoted>
+		<p width='1000'>
+			Some text.
+		</p>
+		<picture source='picture.gif' width='320' height='240'/>
+		<p width='1000' colour='black'>
+			Some more text.
+		</p>
+	</single-quoted>
+
+
+	<double-quoted>
+		<p width="1000">
+			Some text.
+		</p>
+		<picture source="picture.gif" width="320" height="240"/>
+		<p width="1000" colour="black">
+			Some more text.
+		</p>
+	</double-quoted>
+
+
+	<test:noquotes>
+		<test:tag attrib=smeg />
+		<test:tag attrib=smeg/>
+	</test:noquotes>
+
+
+</test:attributes>

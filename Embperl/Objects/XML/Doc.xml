@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="Stylesheet.xsl" type="text/xsl"?>
+
+<doc>
+<list>
+<item>first item</item>
+<item>second item</item>
+<item>third item</item>
+</list>
+</doc>

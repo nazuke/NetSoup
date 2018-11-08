@@ -1,0 +1,44 @@
+<title>SQL Table Test</title>
+
+<h1>SQL Table Test</h1>
+
+
+<p>Select Entire Table</p>
+
+<table border="1">
+<widget package="NetSoup::Apache::Framework::Widgets::SQLTable" database="framework" table="countries" columns="id,name" />
+</table>
+
+
+<p>Select Entire Table with Callbacks</p>
+
+<table border="1">
+<widget package="NetSoup::Apache::Framework::Widgets::SQLTable" database="framework" table="countries" columns="id,name">
+
+<sub column="id">
+<![CDATA[
+  if( $DATA == 54 ) {
+    $DATA = qq(<span style="text-decoration:underline;color:#FF0000;">$DATA</span>);
+  }
+]]>
+</sub>
+  
+<sub column="name">
+<![CDATA[
+  if( $DATA =~ m/united/i ) {
+    $DATA = "<strong>$DATA</strong>";
+  }
+]]>
+</sub>
+
+</widget>
+</table>
+
+
+<p>Select with SQL</p>
+
+<table border="1">
+<widget package="NetSoup::Apache::Framework::Widgets::SQLTable" SQL="SELECT framework.countries.id,framework.countries.name FROM framework.countries;" />
+</table>
+ FROM framework.countries;" />
+</table>

@@ -1,0 +1,20 @@
+#!/usr/local/bin/perl -w
+
+
+use strict;
+use POSIX;
+use NetSoup::Oyster::Server;
+
+
+if( fork ) {										                # Spawn new process...
+ 	exit(0);												              # ...and exit parent
+} else {
+ 	chdir( "/" );
+ 	close( STDIN );
+	close( STDOUT );
+	close( STDERR );
+	POSIX::setsid();
+	my $Server = NetSoup::Oyster::Server->new();  # Create server object
+	$Server->run();                               # Execute server loop
+}
+exit(0);

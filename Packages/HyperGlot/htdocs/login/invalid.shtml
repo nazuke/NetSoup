@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<title>HyperGlot: Invalid Login</title>
+		<style type="text/css">
+			<!--#include virtual="/HyperGlot/styles.css"-->
+		</style>
+	</head>
+	<body>
+		<div class="logoLogin">
+			<img src="../../docs/Logo/HyperGlot-Medium.jpg" width="160" height="120"/>
+		</div>
+		<div class="buttonsLogin">
+			<h1>Invalid Username/Password</h1>
+			<p>You must enter a valid username and password to log into the system.</p>
+		</div>
+	</body>
+</html>

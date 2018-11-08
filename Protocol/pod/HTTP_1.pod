@@ -1,0 +1,166 @@
+=head1 NAME
+
+NetSoup::Protocol::HTTP_1
+
+
+=head1 SYNOPSIS
+
+    use NetSoup::Protocol::HTTP_1;
+    my $http = NetSoup::Protocol::HTTP_1->new();
+
+
+=head1 DESCRIPTION
+
+This class provides high level object methods for fetching and storing data on HTTP servers on the World Wide Web. This class specifically caters for HTTP/1.0 compliant servers.
+
+It is possible to both import and export data to and from web servers.
+
+
+=head1 METHODS
+
+=head2 get()
+
+Use this method to grab some data from a web site.
+
+    $status = $object->get( Url      => $url,
+                            Data     => \$data,
+                            Callback => sub { my $url  = shift;
+                                              my $data = shift; } );
+
+You B<must> supply a fully formed url when downloading a single item using this method.
+
+The scalar reference named C<DATA> will be overwritten with the new incoming data, the previous contents are discarded.
+
+The callback is optional. The callback is called each time the method is called, if that makes sense ?
+
+A scalar value is returned containing a standard HTTP numerical response code.
+
+
+=head2 rget()
+
+Use this method to recursively download web pages.
+
+    $status = $object->rget( Url      => $url,
+                             Data     => \$data,
+                             Max      => $max,
+                             Bidirect => 0 | 1
+                             Infinite => 0 | 1
+                             Callback => sub {} );
+
+This method wraps the get() method with the same parameters and return codes.
+
+The C<Max> property should be set to the maximum link depth that you wish the method to descend to. Please note that this is B<not> the same as the number of pages actually retrieved.
+
+The C<Bidirect> property determines whether the method should retrieve documents that are in directories I<before> the directory originally specified in the starting url.
+
+For instance, if the following url was specified:
+
+    http://localhost/dir1/dir2/index.html
+
+And C<Bidirect> was set to C<0>, then attempting to retrieve:
+
+    http://localhost/dir1/index.html
+
+Will fail. Setting C<Bidirect> to C<1> will retrieve documents higher up in the directory hierarchy. This is useful if you only need to process a particular sub-directory of documents, but to the entire site.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The callback is executed for each page successfully retrieved. Unsuccessful attempts are currently discarded.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=head2 put()
+
+Use this method to send a document to a web server.
+
+Please note that the web server must have some way of storing the received document, otherwise not much will happen. Look in the C<NetSoup/Scripts/cgi-bin> directory for a simple C<put.cgi> handler that can be used with the Apache web server. This script work with my version of Apache (1.3.6), but please check your server documentation for more details about installing and using a put method.
+
+    $status = $object->put( Url  => $url,
+                            Data => \$data );
+
+You B<must> supply a fully formed url when downloading a single item using this method.
+
+The contents of the scalar reference are packaged up and sent to the url.
+
+A scalar value is returned containing a standard HTTP numerical response code.
+
+
+=head2 Examples
+
+Here is a simple example for fetching some web data:
+
+    use NetSoup::Protocol::HTTP_1;
+    my $http   = NetSoup::Protocol::HTTP_1->new();
+    my $data   = "";
+    my $status = $http->get( Url  => "http://localhost/",
+                             Data => \$data );
+    print( $data );
+
+After calling the C<get()> method, C<$data> now contains any data returned by the web server.
+
+The C<get()> method also returns the HTTP numerical status code in C<$status>.
+
+
+=head1 COPYING
+
+Copyright (C) 2000 Jason Holland
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+
+
+=head1 AUTHOR
+
+Jason Holland I<jason.holland@dial.pipex.com>

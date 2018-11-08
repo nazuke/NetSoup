@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+  </head>
+  <body>
+    
+
+    [-
+    
+    $fdat{iMinute}    = $fdat{iMinute}    || 1;
+    $fdat{iDocuments} = $fdat{iDocuments} || 300000;
+    $fdat{iHours}     = $fdat{iHours}     || 6;    
+    $fdat{iCost}      = $fdat{iCost}      || 20;
+
+    $iTotalHours      = ( ( $fdat{iDocuments} * $fdat{iMinute} ) / 60 );
+
+
+    $toCategorise     = ( 2 * 60 ) * ( 1000 / 5000 );
+    $timeToCategorise = ( $toCategorise * $fdat{iDocuments} ) / ( 60 * 60 * 1000 );
+
+    -]
+    
+
+    <form method="GET" action="">
+      
+
+      <table border="1" cellpadding="4" cellspacing="0">
+          <tr>
+            <td>initial</td>
+            <td>manual</td>
+            <td colspan="8">&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="2">&nbsp;</td>
+            <td>to categorize 1 document (web page)</td>
+            <td colspan="5">&nbsp;</td>
+            <td><input name="iMinute" value="[+ $fdat{iMinute} +]"/></td>
+            <td>minute</td>
+          </tr>
+          <tr>
+            <td colspan="2">&nbsp;</td>
+            <td>so</td>
+            <td>&nbsp;</td>
+            <td><input name="iDocuments" value="[+ $fdat{iDocuments} +]"/></td>
+            <td>documents</td>
+            <td colspan="2">&nbsp;</td>
+            <td style="color:#FF0000;">[+ $iTotalHours +]</td>
+            <td>hours</td>
+          </tr>
+          <tr>
+            <td colspan="4">&nbsp;</td>
+            <td><input name="iHours" value="[+ $fdat{iHours} +]"/></td>
+            <td>hours/working day</td>
+            <td colspan="2">&nbsp;</td>
+            <td style="color:#FF0000;">[+ $iTotalHours / $fdat{iHours} +]</td>
+            <td>man days</td>
+          </tr>
+          <tr>
+            <td colspan="3">&nbsp;</td>
+            <td>&euro;</td>
+            <td><input name="iCost" value="[+ $fdat{iCost} +]"/></td>
+            <td>per hour cost</td>
+            <td>total</td>
+            <td>&euro;</td>
+            <td style="color:#FF0000;">[+ $fdat{iCost} * $iTotalHours +]</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>autonomy</td>
+            <td colspan="8">&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="2">&nbsp;</td>
+            <td>to categorize 1 document (web page)</td>
+            <td colspan="5">&nbsp;</td>
+            <td style="color:#FF0000;">[+ $toCategorise +]</td>
+            <td>milliseconds</td>
+          </tr>
+          <tr>
+            <td colspan="2">&nbsp;</td>
+            <td>so</td>
+            <td>&nbsp;</td>
+            <td style="color:#FF0000;">[+ $fdat{iDocuments} +]</td>
+            <td>documents</td>
+            <td colspan="2">&nbsp;</td>
+            <td style="color:#FF0000;">[+ $timeToCategorise +]</td>
+            <td>hours</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>cost saving</td>
+            <td colspan="5">&nbsp;</td>
+            <td>&euro;</td>
+            <td>100,000</td>
+            <td>initial</td>
+          </tr>
+          <tr>
+            <td>ongoing</td>
+            <td>manual</td>
+            <td colspan="8">&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="2">&nbsp;</td>
+            <td>update</td>
+            <td>&nbsp;</td>
+            <td>1,000</td>
+            <td>documents/day</td>
+            <td colspan="2">&nbsp;</td>
+            <td>16.7</td>
+            <td>hours</td>
+          </tr>
+          <tr>
+            <td colspan="2">&nbsp;</td>
+            <td>so to complete in a day you would need</td>
+            <td colspan="5">&nbsp;</td>
+            <td>2.8</td>
+            <td>people</td>
+          </tr>
+          <tr>
+            <td colspan="3">&nbsp;</td>
+            <td>&euro;</td>
+            <td>20</td>
+            <td>per hour cost</td>
+            <td>total</td>
+            <td>&euro;</td>
+            <td>333</td>
+            <td>per day</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>autonomy</td>
+            <td colspan="8">&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="2">&nbsp;</td>
+            <td>update</td>
+            <td>&nbsp;</td>
+            <td>1,000</td>
+            <td>documents/day</td>
+            <td colspan="2">&nbsp;</td>
+            <td>0.4</td>
+            <td>minutes</td>
+          </tr>
+          <tr>
+            <td colspan="2">&nbsp;</td>
+            <td>to administrate this you would need</td>
+            <td colspan="5">&nbsp;</td>
+            <td>1.0</td>
+            <td>people</td>
+          </tr>
+          <tr>
+            <td colspan="3">&nbsp;</td>
+            <td>&euro;</td>
+            <td>20</td>
+            <td>per hour cost</td>
+            <td>total</td>
+            <td>&euro;</td>
+            <td>120</td>
+            <td>per day</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>cost saving</td>
+            <td colspan="5">&nbsp;</td>
+            <td>&euro;</td>
+            <td>51,200</td>
+            <td>per year</td>
+          </tr>
+      </table>
+
+      <input type="submit" />
+
+    </form>
+
+
+  </body>
+
+
+</html>

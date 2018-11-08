@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+  <head>
+    <title>Test Document</title>
+  </head>
+  <body>
+    <h2>Greyscale Chart</h2>
+    <script language="PerlXML">
+	    <![CDATA[
+
+				# This Perl script generates a greyscale chart.
+
+				my @colour = ( 0, 0, 0 );
+				my $HTML   = qq(<table border="0" cellpadding="0" cellspacing="0">\n);
+				for( my $i = 0 ; $i <= 15 ; $i++ ) {
+					$HTML .= "<tr>\n";
+					for( my $j = 0 ; $j <= 15 ; $j++ ) {
+						my $R = unpack( "H*", chr( $colour[0] ) );
+						my $G = unpack( "H*", chr( $colour[1] ) );
+						my $B = unpack( "H*", chr( $colour[2] ) );
+						$HTML .= qq(<td bgcolor="\#$R$G$B" width="10" height="10">\&nbsp;</td>\n);
+						$colour[0]++;
+						$colour[1]++;
+						$colour[2]++;
+					}
+					$HTML .= "<tr>\n";
+				}
+				$HTML .= "</table>\n";
+				$Document->out( $HTML );
+
+      ]]>
+    </script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+    <style type="text/css">
+			.EventsWidget {
+				margin-top:    10px;
+				margin-bottom: 10px;
+			}
+    </style>
+    <table class="EventsWidget" border="0" cellpadding="4" cellspacing="0">
+			<tr class="header">
+				<td>Events This Month</td>
+			</tr>
+			<tr class="header">
+			  <td>
+			  <script language="PerlXML">
+			    <![CDATA[
+									 use NetSoup::Oyster::Component;
+									 use NetSoup::Oyster::Component::Calendar;
+									 use NetSoup::Files::Directory;
+									 $PerlXML::Calendar = NetSoup::Oyster::Component::Calendar->new();
+									 $Document->nocache();
+									 my $Directory   = NetSoup::Files::Directory->new();
+									 %PerlXML::Dates = ( 1  => {},
+																			 2  => {},
+																			 3  => {},
+																			 4  => {},
+																			 5  => {},
+																			 6  => {},
+																			 7  => {},
+																			 8  => {},
+																			 9  => {},
+																			 10 => {},
+																			 11 => {},
+																			 12 => {} );
+									 foreach my $pathname ( "$ENV{DOCUMENT_ROOT}/autonomy_v3/Content/Events/Tradeshows",
+																					"$ENV{DOCUMENT_ROOT}/autonomy_v3/Content/Events/Seminars",
+																					"$ENV{DOCUMENT_ROOT}/autonomy_v3/Content/Events/Conferences" ) {
+										 $Directory->descend( Pathname    => $pathname,
+																					Directories => 1,
+																					Files       => 1,
+																					Recursive => 1,
+																					Callback    => sub {
+																						my $pathname        = shift;
+																						my $filename        = $Directory->filename( Pathname => $pathname );
+																						my ( $month, $day ) = ( $filename =~ m/^([0-9]{2})([0-9]{2})\.s?html$/i );
+																						if( $month ) {
+																							$month    =~ s/^0?//;
+																							$day      =~ s/^0?//;
+																							$pathname =~ s/^$ENV{DOCUMENT_ROOT}//;
+																							$PerlXML::Dates{$month}->{$day} = $pathname;
+																						}
+																					} );
+									 }
+									]]>
+			    </script>
+			    <script language="PerlXML">
+            <![CDATA[
+										 my $month = $PerlXML::Calendar->thisMonth();
+										 $Document->out( qq(<table border="0" cellspacing="4"><tr><td valign="top">) );
+										 $Document->out( $PerlXML::Calendar->month( Index => $month )->XML( Callback => { TD => sub { 
+																																																				my %params = @_;
+																																																				my $Doc    = $params{Document};
+																																																				my $Node   = $params{Node};
+																																																				my $value  = $Node->firstChild()->nodeValue();
+																																																				if( defined $PerlXML::Dates{$month}->{$value} ) {
+																																																					my $A = $Doc->createElement( TagName => "a" );
+																																																					$A->setAttribute( Name => "class", Value => "Calendar_MonthCellDayLink" );
+																																																					$A->setAttribute( Name => "href",  Value => "$PerlXML::Dates{$month}->{$value}" );
+																																																					$A->appendChild( NewChild => $Node->firstChild() );
+																																																					$Node->appendChild( NewChild => $A );
+																																																					$Node->setAttribute( Name => "class", Value => "Calendar_MonthCellDayLink" );
+																																																					$Node->removeChild( OldChild => $Node->firstChild() );
+																																																				}
+																																																			} } ) );
+										 $Document->out( qq(</td></tr></table>) );
+										]]>
+			    </script>
+			  </td>
+			</tr>
+    </table>

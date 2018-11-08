@@ -1,0 +1,34 @@
+body {
+	font-family:      Lucida, Helvetica, Arial, sans-serif;
+	background-color: white;
+	color:            black;
+	margin-left:      2px;
+	margin-right:     0px;
+}
+
+
+h4 {
+	font-family: Lucida, Helvetica, Arial, sans-serif;
+	font-size:   12pt;
+	align:       center;
+}
+
+
+p, a {
+	font-family: Lucida, Helvetica, Arial, sans-serif;
+	font-size:   10pt;
+}
+
+
+div.logoLogin {
+	position:     absolute;
+	left:         0px;
+	top:          0px;
+	margin-left:  0px;
+	margin-right: 0px;
+}
+
+
+div.buttonsLogin {
+	margin-left: 160px;
+}

@@ -1,0 +1,86 @@
+/barchart {
+  newpath
+  /barchartdict 5 dict def
+  barchartdict begin
+    /message exch def
+    /height  exch def
+    /width   exch def
+    /yorigin exch def
+    /xorigin exch def
+    xorigin yorigin moveto
+    0 height rlineto
+    width 0 rlineto
+    0 0 height sub rlineto
+    0 width sub 0 rlineto
+    closepath
+    gsave
+      1 0 0 setrgbcolor
+      fill
+    grestore
+    0 setgray
+    2 setlinewidth
+    stroke
+    /barchartdict 1 dict def
+    barchartdict begin
+      /Helvetica-Bold findfont
+      10 scalefont
+      setfont
+      xorigin yorigin moveto
+      /offset width message stringwidth pop sub 2 div def
+      offset 8 rmoveto
+      1 setgray
+      message show
+    end
+  end
+} def
+
+
+/barchartscale {
+  newpath
+  /barchartscaledict 10 dict def
+  barchartscaledict begin
+    /height  exch def
+    /width   exch def
+    /yorigin exch def
+    /xorigin exch def
+    xorigin xorigin moveto
+    0 height rlineto
+    0 setgray
+    2 setlinewidth
+    stroke
+    10 10 height {
+      newpath
+      xorigin exch yorigin add moveto
+      -5 0 rlineto
+      2 setlinewidth
+      0 0 0 setrgbcolor
+      gsave
+        /Helvetica-Bold findfont
+        8 scalefont
+        setfont
+        -8 -2 rmoveto
+      grestore
+      stroke
+    } for
+  end
+} def
+
+
+/width 80 4 mul def
+/height 200 def
+20 20 width height barchartscale
+
+
+/offset 20 def
+offset 20 80 60 (Mozilla) barchart
+
+
+/offset offset 80 add def
+offset 20 80 60 (Mozilla) barchart
+
+
+/offset offset 80 add def
+offset 20 80 60 (Mozilla) barchart
+
+
+showpage

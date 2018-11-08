@@ -1,0 +1,52 @@
+=head1 NAME
+
+RipHtml
+
+
+=head1 SYNOPSIS
+
+    ripHtml.pl pathname [ pathname ... ]
+
+Html file format text extraction and reintegration script. The output from this script is intended for use by a software localisation translator.
+
+
+=head1 DESCRIPTION
+
+Currently the script only looks for free text in the Html text and ALT properties of the <A> tags therein. Support for strings within embedded scripts is under development, but as these are highly context dependant and require a human reader to infere meaning from them. A suitable class libaray is being developed to narrow down selections to sensible strings.
+
+During the extraction process the program scans each file, tokenises the necessary text and saves the token/string pairs into a tab-delimited text file. This text file is passed to the translator for editing. As the file is essentially a table, the translator can open it in Microsoft Word, and choose "Convert Text to Table" from the "Table" menu.
+
+The first column in the table contains tokens, these are for internal use only and should be ignored; they B<must not> be modified.
+
+The text extracted should not contain any Html tags, however it may contain Html Entity Tags. These tags are used to represent special characters that are not in the low-ascii character set, or are reserved in regular Html. To decode these entity tags, please use a suitable reference. You can find a reference table in I<Html: The Definitive Guide>, from I<O'Reilly and Associates>.
+
+Occasionally some material may get extracted that should not be edited; please ignore this, or better still send me a bug report. The main reason why this happens is that web site development is progressing at an exceptional rate; with new languages and tools appearing constantly. This means that a complex web page may contain lots of different kinds of code and server directives. Whenever something radically new comes along, I may need to modify the program to take it into account.
+
+
+=head1 USAGE
+
+Run the script, giving directory pathnames as arguments. More than one directory may be processed in a session.
+
+Each directory is processed in turn. A new directory is created, the I<Mirror>, with the same name as the original; the mirror has a tilde appended.
+
+The original directory now contains ripped files, with each string replaced with a special token value. The mirror contains the tab-delimited text files.
+
+Edit the files in the mirror directory and re-run the script; using the original arguments. The contents of the tab-delimited text files are merged into the ripped files. As each mirror directory is processed, its trailing tilde is changed to an exclamation mark, flagging the directory as processed.
+
+The files in the original directory should now contain the new text strings.
+
+
+=head1 COPYING
+
+Copyright (C) 2000 Jason Holland
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+
+
+=head1 AUTHOR
+
+Jason Holland I<jason.holland@dial.pipex.com>

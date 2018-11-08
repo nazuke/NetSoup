@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+  <head>
+    <title>Include a Remote Document</title>
+  </head>
+  <body>
+    <h1>Include a Remote Document</h1>
+    <script language="PerlXML">
+      <![CDATA[
+
+					my $File = "included.xml";
+					$Document->out( qq(<p>The document "$File" has been included</p>) );
+					$Document->include( File => $File );
+
+      ]]>
+    </script>
+  </body>
+</html>

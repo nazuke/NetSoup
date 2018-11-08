@@ -1,0 +1,6 @@
+<div>
+  [-
+    $ENV{PSP_CUSTOMER_LIST} = "/PSP/t/custlist";
+    Execute ( $req_rec->lookup_uri( "/PSP/List/Customer" )->filename() );
+  -]
+</div>

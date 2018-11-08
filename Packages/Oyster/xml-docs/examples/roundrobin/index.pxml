@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+  <head>
+    <title>Round Robin</title>
+  </head>
+  <body>
+    <h1>Round Robin</h1>
+
+
+    <script language="PerlXML" src="RoundRobin.pm"/>
+
+
+    <script language="PerlXML">
+      <![CDATA[
+				$Document->out( qq(<p><a href="http://$RoundRobin::Host/">http://$RoundRobin::Host/</a></p>\n) );
+      ]]>
+    </script>
+
+
+  </body>
+</html>

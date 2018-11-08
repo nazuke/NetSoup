@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+  <head>
+    <title>SRC Include</title>
+  </head>
+  <body>
+    <h1>SRC Include</h1>
+    <script language="PerlXML" src="src.pm"/>
+  </body>
+</html>

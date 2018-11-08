@@ -1,0 +1,21 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <form method="POST" action="http://127.0.0.1/cgi-bin/mailhtml.cgi">
+      <input type="hidden" name="RECIPIENT"  value="test@localhost">
+      <input type="hidden" name="CC"         value="web@localhost">
+      <input type="hidden" name="FROM"       value="maildroid@autonomy.com">
+      <input type="hidden" name="SUBJECT"    value="Testing mailhtml">
+      <input type="hidden" name="DOCTYPE"    value="form">
+      <input type="hidden" name="ACTION"     value="http://localhost/cgi-bin/some.cgi">
+      <input type="hidden" name="SORTORDER"  value="one,two,three">
+      <input type="hidden" name="SUCCESSURL" value="http://localhost/">
+      <input type="hidden" name="ERRORURL"   value="http://localhost/">
+      <input type="text"   name="one" value="this is field one"><br>
+      <input type="text"   name="two" value="this is field two"><br>
+      <input type="text"   name="three" value="this is field three"><br>
+      <input type="submit" value="submit to my iron will">
+    </form>
+  </body>
+</html>

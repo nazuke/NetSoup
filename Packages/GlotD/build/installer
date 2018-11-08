@@ -1,0 +1,18 @@
+#!/usr/local/bin/perl
+# This script is the NetSoup GlotD installer.
+# It is called by "make install".
+use NetSoup::Core;
+my $username = $ARGV[0];
+my $core     = NetSoup::Core->new();
+my $bin_path = $core->getConfig( Key => 'BinPath' );
+if( -e $bin_path ) {
+	line( qq(Installing glotd into "$bin_path") );
+	system( "cp glotd.pl $bin_path/glotd" );
+	system( "chmod a+sx $bin_path/glotd" );
+	system( "chown $username:$username $bin_path/glotd" );
+} else {
+	line( qq(Error: "$bin_path" does not exist!) );
+	exit(-1);
+}
+exit(0);
+sub line { print( (shift) . "\n" ) }

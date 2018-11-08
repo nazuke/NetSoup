@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<title>Test CGI Form Validator</title>
+	</head>
+	<body>
+		<form method="POST" action="http://localhost/cgi-bin/Validate.cgi">
+
+			<p><input type="text" name="string"> string</p>
+
+			<p><input type="text" name="int"> int</p>
+
+			<p><input type="text" name="float"> float</p>
+
+			<p><input type="submit"></p>
+
+		</form>
+	</body>
+</html>

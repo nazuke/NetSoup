@@ -1,0 +1,51 @@
+body {
+  margin:           0px;
+  border:           0px;
+  background-color: white;
+  fontFamily:       Helvetica, Lucida, Arial, sans-serif;
+  font-color:       black;
+}
+
+
+a {
+  fontFamily: Helvetica, Lucida, Arial, sans-serif;
+  color:      blue;
+}
+
+
+h1, h2, h3, h4, h5, h6, h7 {
+  color: black;
+}
+
+h1 {
+  font-size: 18pt;
+}
+
+h2 {
+  font-size: 16pt;
+}
+
+
+p {
+  font-size:  12pt;
+  color: black;
+}
+
+
+p.copyright {
+  font-size:  10pt;
+  font-style: italic;
+}
+
+
+code {
+  fontFamily:  courier, fixed-width;
+  font-size:   12pt;
+  color:       black;
+  margin-left: 20px;
+}
+
+
+ul {
+  color: white;
+}

@@ -1,0 +1,85 @@
+body {
+	font-face:        "Helvetica,Arial";
+	font-size:        10pt;
+	color:            #FFEEDD;
+	background-color: #805000;
+}
+
+h1 {
+	font-size: 16pt;
+	color:     #FFFFFF;
+}
+
+h2 {
+	font-size: 12pt;
+	color:     #FFFFFF;
+}
+
+em.copy {
+	color:     #FFFFFF;
+}
+
+.lightborder {
+	border-color: #DDAA33;
+	border-width: thin;
+	border-style: solid;
+}
+
+.darkborder {
+	border-color: #000000;
+	border-width: thin;
+	border-style: solid;
+}
+
+td {
+	font-size: 10pt;
+}
+
+td.light {
+	color:            #000000;
+	background-color: #DDAA33;
+}
+
+td.dark {
+	color:            #FFEEDD;
+	background-color: #000000;
+}
+
+form {
+	margin-top:     0px;
+	margin-bottom:  0px;
+	padding-top:    0px;
+	padding-bottom: 0px;
+}
+
+a {
+	color:           #FFFFFF;
+	text-decoration: none;
+	font-style:      italic;
+	font-weight:     bold;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a.light {
+	color: #000000;
+}
+
+a.dark {
+	color: #FFFFFF;
+}
+
+.xrule {
+	border-color: black;
+	border-style: solid;
+	border-width: 3px;
+	margin:       4px;
+	padding:      0px;
+	text-align:   center;
+}
+
+.smallbutton {
+	font-size:   9pt;
+}

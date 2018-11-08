@@ -1,0 +1,90 @@
+=head1 NAME
+
+NetSoup::CGI
+
+
+=head1 SYNOPSIS
+
+    use NetSoup::CGI;
+    my $cgi = NetSoup::CGI->new();
+
+
+=head1 DESCRIPTION
+
+This is the NetSoup CGI interface class. This class provides a basic CGI interface for decoding incoming data in both GET and POST formats.
+
+For your own programs I would recommend that you use the more comprehensive CGI.pm module included with the standard Perl libraries. This implementation is really only designed for use by the NetSoup applications and libraries.
+
+
+=head1 METHODS
+
+=head2 vars
+
+    $cgi->vars( \%hash );
+
+The C<vars()> method dumps the current environment variables in the hash reference supplied.
+
+
+=head2 var
+
+    my $value = $cgi->var( $key );
+
+This method returns a specifically named environment variable.
+
+
+=head2 fields
+
+    my @array = $cgi->fields();
+
+The C<fields()> method returns an array of the defined CGI variables. This makes it possible to check if a certain value is defined, or to iterate over the values set.
+
+
+=head2 field
+
+    my $value = $cgi->field( Name    => $name,
+                             [Format => "Html" | "Ascii" | "Mac" | "Win"] );
+
+The C<field()> method returns the value of a particular CGI variable as specified by the C<Name> parameter.
+
+The optional C<Format> parameter specifies the encoding of the returned value.
+
+Using the C<Html> value as a format parameter will return the value with special characters encoded as html entity tags. This is probably useful if the data is going to be inserted directly into a new html document.
+
+Using the C<Ascii> value as a format parameter will return the value as a straight hexadecimal to 8 bit byte conversion string. The text value may or may not contain a sensible value when printed using your machine's character set.
+
+Using the C<Mac> value as a format parameter will return the value as a string containing all special characters (hopefully) converted to the Macintosh character set. This feature should be considered experimental.
+
+Using the C<Win> value as a format parameter will return the value as a string containing all special characters (hopefully) converted to the Microsoft Windows character set. This feature should be considered experimental.
+
+
+=head2 insert
+
+    $cgi->field( Name    => $name,
+                 [Format => "Html" | "Ascii" | "Mac" | "Win"] );
+
+The C<insert()> method is used to artificially insert a CGI variable into the fields list.
+
+You probably don't need to ever use this method, but there were a couple of occasions where it was necessary to insert a new value purely for internal purposes.
+
+
+=head2 filename
+
+    $cgi->filename( $field_name );
+
+The C<filename()> method returns the filename associated with a MIME format body part.
+
+
+=head1 COPYING
+
+Copyright (C) 2000 Jason Holland
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+
+
+=head1 AUTHOR
+
+Jason Holland I<jason.holland@dial.pipex.com>

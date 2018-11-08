@@ -1,0 +1,14 @@
+<html>
+	<head>
+		<title>CGI Test Form</title>
+	</head>
+	<body>
+		<form method="POST" action="http://localhost/cgi-bin/CGI.cgi">
+			<p><input name="field1" type="text" value="This is field one"></p>
+			<p><input name="field2" type="text" value="This is field two"></p>
+			<p><input name="field3" type="text" value="This is field three"></p>
+			<p><input name="field4" type="text" value="This is field four"></p>
+			<p><input type="submit"></p>
+		</form>
+	</body>
+</html>
